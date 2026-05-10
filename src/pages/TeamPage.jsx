@@ -151,16 +151,16 @@ function StaffCard({ member, t, isRTL, onViewBio, isPartner }) {
       className="hover:-translate-y-1 transition-all duration-300"
       style={{
         background: '#ffffff',
-        border: isPartner ? '2px solid #a8bfd0' : '1px solid #eef1f4',
+        border: isPartner ? '1.5px solid rgba(196,136,58,0.32)' : '1px solid rgba(0,0,0,0.06)',
         borderRadius: '16px',
         padding: '24px',
-        boxShadow: isPartner ? '0 2px 10px rgba(0,0,0,0.1)' : '0 1px 4px rgba(0,0,0,0.05)',
+        boxShadow: isPartner ? '0 4px 24px rgba(196,136,58,0.10)' : '0 4px 20px rgba(0,0,0,0.06)',
         display: 'flex',
         flexDirection: 'column',
         gap: '16px',
       }}
-      onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 8px 24px rgba(39,110,125,0.1)'; }}
-      onMouseLeave={e => { e.currentTarget.style.boxShadow = isPartner ? '0 2px 8px rgba(0,0,0,0.08)' : '0 1px 4px rgba(0,0,0,0.05)'; }}
+      onMouseEnter={e => { e.currentTarget.style.boxShadow = isPartner ? '0 8px 32px rgba(196,136,58,0.18)' : '0 8px 32px rgba(0,0,0,0.10)'; }}
+      onMouseLeave={e => { e.currentTarget.style.boxShadow = isPartner ? '0 4px 24px rgba(196,136,58,0.10)' : '0 4px 20px rgba(0,0,0,0.06)'; }}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexDirection: 'row' }}>
         <div style={{ width: '48px', height: '48px', borderRadius: '50%', backgroundImage: 'linear-gradient(135deg, #0D1E2F 0%, #1A3554 100%)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '15px', fontWeight: 700, flexShrink: 0, outline: '4px solid rgba(39,110,125,0.1)' }}>
@@ -197,8 +197,8 @@ function StaffCard({ member, t, isRTL, onViewBio, isPartner }) {
           style={{
             marginTop: '4px',
             padding: '8px 0',
-            background: '#8fa3b3',
-            color: '#ffffff',
+            background: '#EEF3F7',
+            color: '#1A3554',
             fontSize: '12px',
             fontWeight: 600,
             border: 'none',
@@ -207,8 +207,8 @@ function StaffCard({ member, t, isRTL, onViewBio, isPartner }) {
             width: '100%',
             transition: 'background 0.2s ease',
           }}
-          onMouseEnter={e => { e.currentTarget.style.background = '#7a8f9e'; }}
-          onMouseLeave={e => { e.currentTarget.style.background = '#8fa3b3'; }}
+          onMouseEnter={e => { e.currentTarget.style.background = '#DDE6ED'; }}
+          onMouseLeave={e => { e.currentTarget.style.background = '#EEF3F7'; }}
         >
           {isRTL ? 'צפה בביוגרפיה' : 'View Bio'}
         </button>
