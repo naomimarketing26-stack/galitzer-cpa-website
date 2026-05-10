@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useLang } from '../context/LanguageContext'
 import { content } from '../data/content'
 import { useReveal } from '../hooks/useReveal'
@@ -43,6 +43,7 @@ export default function BlogPage() {
   const isRTL = lang === 'he'
   const tabs = TABS[lang]
   const [activeTab, setActiveTab] = useState(tabs[0])
+  useEffect(() => { setActiveTab(tabs[0]) }, [lang])
   const [infoCenterRef, infoCenterRevealed] = useReveal()
   const [resourcesRef, resourcesRevealed] = useReveal()
 
