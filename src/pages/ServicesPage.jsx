@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { useLang } from '../context/LanguageContext'
 import { pages } from '../data/pages'
 import FinalCTA from '../components/FinalCTA'
@@ -26,21 +25,17 @@ function CheckIcon() {
   )
 }
 
-const PREVIEW_COUNT = 4
-
 function ServiceCard({ category, isRTL, revealDelay, revealed }) {
-  const [expanded, setExpanded] = useState(false)
   const allItems = category.items || category.subGroups?.flatMap(g => g.items) || []
-  const showToggle = allItems.length > PREVIEW_COUNT
 
   const badgeColors = {
     'Most Popular': { bg: '#1A3554', text: '#ffffff' },
     'Comprehensive': { bg: '#0F2B47', text: '#B0C8E0' },
-    'For Professionals': { bg: '#276e4a', text: '#ffffff' },
+    'For Professionals': { bg: '#6E7F8D', text: '#ffffff' },
     'Most Asked': { bg: '#8a6020', text: '#ffffff' },
     'הנפוץ ביותר': { bg: '#1A3554', text: '#ffffff' },
     'מקיף': { bg: '#0F2B47', text: '#B0C8E0' },
-    'לעסקים': { bg: '#276e4a', text: '#ffffff' },
+    'לעסקים': { bg: '#6E7F8D', text: '#ffffff' },
     'נשאל הכי הרבה': { bg: '#8a6020', text: '#ffffff' },
   }
   const badge = category.badge ? badgeColors[category.badge] || { bg: '#1A3554', text: '#ffffff' } : null
@@ -66,7 +61,7 @@ function ServiceCard({ category, isRTL, revealDelay, revealed }) {
     >
       <div
         style={{
-          background: category.color === 'bg-[#e8f4f6]' ? '#e8f4f6' : '#f4f7f9',
+          background: '#f4f7f9',
           borderBottom: '1px solid rgba(0,0,0,0.05)',
           padding: '20px 28px',
           display: 'flex',
@@ -93,21 +88,13 @@ function ServiceCard({ category, isRTL, revealDelay, revealed }) {
         {category.items ? (
           <>
             <ul style={{ display: 'flex', flexDirection: 'column', gap: '14px', listStyle: 'none' }}>
-              {(expanded ? category.items : category.items.slice(0, PREVIEW_COUNT)).map((item, i) => (
+              {category.items.map((item, i) => (
                 <li key={i} style={{ display: 'flex', gap: '10px', flexDirection: 'row', textAlign: isRTL ? 'right' : 'left' }}>
                   <CheckIcon />
                   <span style={{ fontSize: '14px', color: '#555555', lineHeight: 1.75 }}>{item}</span>
                 </li>
               ))}
             </ul>
-            {showToggle && (
-              <button
-                onClick={() => setExpanded(e => !e)}
-                style={{ marginTop: '16px', fontSize: '13px', fontWeight: 600, color: '#C4883A', background: 'none', border: 'none', cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center', gap: '4px' }}
-              >
-                {expanded ? (isRTL ? '▲ הצג פחות' : 'Show less ▲') : (isRTL ? '▼ הצג הכל' : 'Show all ↓')}
-              </button>
-            )}
           </>
         ) : (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
