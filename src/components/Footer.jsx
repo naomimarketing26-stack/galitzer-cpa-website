@@ -30,7 +30,7 @@ export default function Footer() {
           }}
         >
           {/* Brand */}
-          <div style={{ textAlign: isRTL ? 'right' : 'left', display: 'flex', flexDirection: 'column', alignItems: isRTL ? 'flex-end' : 'flex-start' }}>
+          <div style={{ textAlign: isRTL ? 'right' : 'left', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
             {/* Logo — always LTR text order, but column is RTL-aligned */}
             <div style={{ marginBottom: '12px' }}>
               <div style={{ direction: 'ltr', display: 'inline-flex', alignItems: 'center', gap: '4px', flexWrap: 'wrap' }}>
