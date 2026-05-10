@@ -78,8 +78,8 @@ export default function HowItWorks() {
               display: 'flex',
               alignItems: 'flex-start',
               gap: '20px',
-              /* row-reverse = circle on RIGHT for RTL, circle on LEFT for LTR */
-              flexDirection: 'row',
+              /* parent grid has direction:ltr, so row-reverse puts circle on RIGHT in RTL */
+              flexDirection: isRTL ? 'row-reverse' : 'row',
               marginBottom: i < t.steps.length - 1 ? '40px' : '0',
               opacity: stepsRevealed ? 1 : 0,
               transform: stepsRevealed ? 'translateY(0)' : 'translateY(24px)',
@@ -176,7 +176,7 @@ export default function HowItWorks() {
             placeholder={isRTL ? 'israel@example.com' : 'john@example.com'}
             value={formValues.email}
             onChange={e => setFormValues(v => ({ ...v, email: e.target.value }))}
-            style={{ ...inputStyle, direction: 'ltr', textAlign: 'left' }}
+            style={{ ...inputStyle, direction: 'ltr', textAlign: isRTL ? 'right' : 'left' }}
           />
         </div>
         <div>
@@ -186,7 +186,7 @@ export default function HowItWorks() {
             placeholder={isRTL ? '050-000-0000' : '+1 (555) 000-0000'}
             value={formValues.phone}
             onChange={e => setFormValues(v => ({ ...v, phone: e.target.value }))}
-            style={{ ...inputStyle, direction: 'ltr', textAlign: 'left' }}
+            style={{ ...inputStyle, direction: 'ltr', textAlign: isRTL ? 'right' : 'left' }}
           />
         </div>
         <a

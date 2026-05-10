@@ -260,13 +260,18 @@ export default function TeamPage() {
         <div style={{ ...container, display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '20px', flexDirection: 'row' }}>
           <span style={{ fontSize: '11px', fontWeight: 700, color: '#555555', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{t.officeLabel}:</span>
           <a href={`tel:${officePhone.il}`} style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '13px', color: '#cccccc', textDecoration: 'none' }} onMouseEnter={e => e.currentTarget.style.color = '#C4883A'} onMouseLeave={e => e.currentTarget.style.color = '#ccc'}>
-            🇮🇱 {officePhone.il}
+            <span>🇮🇱</span>
+            <span style={{ direction: 'ltr' }}>{officePhone.il}</span>
           </a>
           <span style={{ color: '#333', display: 'none' }}>|</span>
           <a href={`tel:${officePhone.us}`} style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '13px', color: '#cccccc', textDecoration: 'none' }} onMouseEnter={e => e.currentTarget.style.color = '#C4883A'} onMouseLeave={e => e.currentTarget.style.color = '#ccc'}>
-            🇺🇸 {officePhone.us}
+            <span>🇺🇸</span>
+            <span style={{ direction: 'ltr' }}>{officePhone.us}</span>
           </a>
-          <span style={{ fontSize: '12px', color: '#444444' }}>Fax: {officePhone.ilFax}</span>
+          <span style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', color: '#444444' }}>
+            <span>{isRTL ? 'פקס:' : 'Fax:'}</span>
+            <span style={{ direction: 'ltr' }}>{officePhone.ilFax}</span>
+          </span>
         </div>
       </section>
 

@@ -153,9 +153,9 @@ export default function ServicesSection() {
           {/* Row: [Prev] [Track] [Next] */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
 
-            {/* Left button: prev in LTR, next in RTL */}
+            {/* Left button: prev in LTR, next in RTL — arrow faces outward */}
             <NavBtn onClick={() => { (isRTL ? next : prev)(); setPaused(true) }}>
-              ←
+              {isRTL ? '→' : '←'}
             </NavBtn>
 
             {/* Overflow mask */}
@@ -265,9 +265,9 @@ export default function ServicesSection() {
               </div>
             </div>
 
-            {/* Right button: next in LTR, prev in RTL */}
+            {/* Right button: next in LTR, prev in RTL — arrow faces outward */}
             <NavBtn onClick={() => { (isRTL ? prev : next)(); setPaused(true) }}>
-              →
+              {isRTL ? '←' : '→'}
             </NavBtn>
 
           </div>{/* end row */}
