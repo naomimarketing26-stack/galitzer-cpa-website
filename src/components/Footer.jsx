@@ -30,8 +30,8 @@ export default function Footer() {
           }}
         >
           {/* Brand */}
-          <div style={{ textAlign: isRTL ? 'right' : 'left', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-            {/* Logo — always LTR text order, but column is RTL-aligned */}
+          <div style={{ textAlign: isRTL ? 'right' : 'left' }}>
+            {/* Logo — inline-flex so text-align positions it correctly */}
             <div style={{ marginBottom: '12px' }}>
               <div style={{ direction: 'ltr', display: 'inline-flex', alignItems: 'center', gap: '4px', flexWrap: 'wrap' }}>
                 <span style={{ fontSize: '18px', fontWeight: 800, color: 'white', letterSpacing: '-0.01em' }}>S.GALITZER</span>
@@ -40,16 +40,19 @@ export default function Footer() {
               </div>
             </div>
             <p style={{ fontSize: '13px', color: '#777777', marginBottom: '16px', lineHeight: 1.6 }}>{t.tagline}</p>
-            <button
-              onClick={toggle}
-              className={`flex items-center gap-2 rounded-full border transition-colors hover:border-[#555] ${isRTL ? 'py-1 pr-1 pl-3' : 'py-1 pl-1 pr-3'}`}
-              style={{ background: 'rgba(255,255,255,0.05)', borderColor: '#2A3F55', cursor: 'pointer', direction: 'ltr' }}
-            >
-              <CircleFlag countryCode={lang === 'en' ? 'il' : 'us'} height={22} width={22} />
-              <span style={{ fontSize: '12px', fontWeight: 600, color: '#aaaaaa' }}>
-                {lang === 'en' ? 'עברית' : 'English'}
-              </span>
-            </button>
+            {/* flex-start = right in RTL, left in LTR */}
+            <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
+              <button
+                onClick={toggle}
+                className={`flex items-center gap-2 rounded-full border transition-colors hover:border-[#555] ${isRTL ? 'py-1 pr-1 pl-3' : 'py-1 pl-1 pr-3'}`}
+                style={{ background: 'rgba(255,255,255,0.05)', borderColor: '#2A3F55', cursor: 'pointer', direction: 'ltr' }}
+              >
+                <CircleFlag countryCode={lang === 'en' ? 'il' : 'us'} height={22} width={22} />
+                <span style={{ fontSize: '12px', fontWeight: 600, color: '#aaaaaa' }}>
+                  {lang === 'en' ? 'עברית' : 'English'}
+                </span>
+              </button>
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -85,23 +88,23 @@ export default function Footer() {
                   {t.contact.email}
                 </a>
               </li>
-              <li style={{ display: 'flex', alignItems: 'center', gap: '6px', justifyContent: isRTL ? 'flex-end' : 'flex-start', direction: 'ltr' }}>
+              <li style={{ display: 'flex', alignItems: 'center', gap: '6px', justifyContent: 'flex-start' }}>
                 <span style={{ opacity: 0.5 }}>🇮🇱</span>
-                <a href={`tel:${t.contact.phoneIL}`} style={{ fontSize: '14px', color: '#777777', textDecoration: 'none' }}
+                <a href={`tel:${t.contact.phoneIL}`} style={{ fontSize: '14px', color: '#777777', textDecoration: 'none', direction: 'ltr' }}
                   onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#777'}>
                   {t.contact.phoneIL}
                 </a>
               </li>
-              <li style={{ display: 'flex', alignItems: 'center', gap: '6px', justifyContent: isRTL ? 'flex-end' : 'flex-start', direction: 'ltr' }}>
+              <li style={{ display: 'flex', alignItems: 'center', gap: '6px', justifyContent: 'flex-start' }}>
                 <span style={{ opacity: 0.5 }}>🇺🇸</span>
-                <a href={`tel:${t.contact.phoneUS}`} style={{ fontSize: '14px', color: '#777777', textDecoration: 'none' }}
+                <a href={`tel:${t.contact.phoneUS}`} style={{ fontSize: '14px', color: '#777777', textDecoration: 'none', direction: 'ltr' }}
                   onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#777'}>
                   {t.contact.phoneUS}
                 </a>
               </li>
-              <li style={{ fontSize: '13px', color: '#555555', display: 'flex', gap: '4px', justifyContent: isRTL ? 'flex-end' : 'flex-start', direction: 'ltr' }}>
+              <li style={{ fontSize: '13px', color: '#555555', display: 'flex', gap: '4px', justifyContent: 'flex-start' }}>
                 <span>{isRTL ? 'פקס:' : 'Fax:'}</span>
-                <span>{t.contact.fax}</span>
+                <span style={{ direction: 'ltr' }}>{t.contact.fax}</span>
               </li>
             </ul>
           </div>
