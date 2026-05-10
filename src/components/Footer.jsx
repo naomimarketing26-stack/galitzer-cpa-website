@@ -123,10 +123,10 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div style={{ borderTop: '1px solid #1E3448', paddingTop: '24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px', flexWrap: 'wrap' }}>
-          <p style={{ fontSize: '12px', color: '#555555' }}>{t.copyright}</p>
-          <Link to="/privacy" style={{ fontSize: '12px', color: '#555555', textDecoration: 'none' }}
-            onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#555'}>
+        <div style={{ borderTop: '1px solid #1E3448', paddingTop: '24px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
+          <p style={{ fontSize: '12px', color: '#4A5E72', textAlign: 'center', lineHeight: 1.6 }}>{t.copyright}</p>
+          <Link to="/privacy" style={{ fontSize: '12px', color: '#3D5268', textDecoration: 'none' }}
+            onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#3D5268'}>
             {isRTL ? 'מדיניות פרטיות' : 'Privacy Policy'}
           </Link>
         </div>

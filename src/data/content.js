@@ -193,7 +193,7 @@ export const content = {
         hoursLabel: 'Office Hours',
         hours: 'Sun–Thu: 9:00–18:00',
       },
-      copyright: '© 2025 S. Galitzer & Associates. All rights reserved.',
+      copyright: '© 2026 S. Galitzer & Associates. All rights reserved. | Created by Naomi Marketing & Strategy',
     },
   },
 
@@ -316,7 +316,7 @@ export const content = {
         hoursLabel: 'שעות פעילות',
         hours: 'א׳–ה׳: 9:00–18:00',
       },
-      copyright: '© 2025 S. Galitzer & Associates. כל הזכויות שמורות.',
+      copyright: '© 2026 ש. גליצר ושות׳. כל הזכויות שמורות. | עוצב ופותח ע״י נעמי שיווק ואסטרטגיה',
     },
   },
 }
