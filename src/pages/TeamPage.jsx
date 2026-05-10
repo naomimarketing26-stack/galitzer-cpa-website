@@ -211,7 +211,7 @@ function StaffCard({ member, t, isRTL, onViewBio, isPartner }) {
           onMouseEnter={e => { e.currentTarget.style.background = '#DDE6ED'; }}
           onMouseLeave={e => { e.currentTarget.style.background = '#EEF3F7'; }}
         >
-          {isRTL ? 'צפה בביוגרפיה' : 'View Bio'}
+          {isRTL ? 'צפה בביו' : 'View Bio'}
         </button>
       )}
     </div>
