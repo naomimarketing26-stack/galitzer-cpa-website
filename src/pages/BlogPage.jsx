@@ -18,11 +18,11 @@ const TABS = {
 const featuredLinks = {
   en: [
     { name: 'Internal Revenue Service (IRS)', desc: 'Official U.S. tax guidance and forms', url: 'https://www.irs.gov', flag: '🇺🇸', bg: '#1A3554', tab: 'US' },
-    { name: 'Israel Income Tax Authority', desc: 'Israeli income tax and compliance information', url: 'https://www.gov.il/en/departments/israel_tax_authority', flag: '🇮🇱', bg: '#1a5c3a', tab: 'Israel' },
+    { name: 'Israel Income Tax Authority', desc: 'Israeli income tax and compliance information', url: 'https://www.gov.il/en/departments/israel_tax_authority', flag: '🇮🇱', bg: '#0F2B47', tab: 'Israel' },
   ],
   he: [
     { name: 'Internal Revenue Service (IRS)', desc: 'הנחיות ובקשות מס רשמיות של ארה"ב', url: 'https://www.irs.gov', flag: '🇺🇸', bg: '#1A3554', tab: 'ארה״ב' },
-    { name: 'רשות המסים בישראל', desc: 'מידע על מס הכנסה ועמידה בדרישות ישראל', url: 'https://www.gov.il/he/departments/israel_tax_authority', flag: '🇮🇱', bg: '#1a5c3a', tab: 'ישראל' },
+    { name: 'רשות המסים בישראל', desc: 'מידע על מס הכנסה ועמידה בדרישות ישראל', url: 'https://www.gov.il/he/departments/israel_tax_authority', flag: '🇮🇱', bg: '#0F2B47', tab: 'ישראל' },
   ],
 }
 
