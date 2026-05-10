@@ -151,16 +151,17 @@ function StaffCard({ member, t, isRTL, onViewBio, isPartner }) {
       className="hover:-translate-y-1 transition-all duration-300"
       style={{
         background: '#ffffff',
-        border: isPartner ? '1.5px solid rgba(196,136,58,0.32)' : '1px solid rgba(0,0,0,0.06)',
+        border: '1px solid rgba(0,0,0,0.07)',
+        borderTop: hasBio ? '3px solid #D4AF37' : '1px solid rgba(0,0,0,0.07)',
         borderRadius: '16px',
         padding: '24px',
-        boxShadow: isPartner ? '0 4px 24px rgba(196,136,58,0.10)' : '0 4px 20px rgba(0,0,0,0.06)',
+        boxShadow: '0 1px 6px rgba(0,0,0,0.05)',
         display: 'flex',
         flexDirection: 'column',
         gap: '16px',
       }}
-      onMouseEnter={e => { e.currentTarget.style.boxShadow = isPartner ? '0 8px 32px rgba(196,136,58,0.18)' : '0 8px 32px rgba(0,0,0,0.10)'; }}
-      onMouseLeave={e => { e.currentTarget.style.boxShadow = isPartner ? '0 4px 24px rgba(196,136,58,0.10)' : '0 4px 20px rgba(0,0,0,0.06)'; }}
+      onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 4px 14px rgba(0,0,0,0.09)'; }}
+      onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 1px 6px rgba(0,0,0,0.05)'; }}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexDirection: 'row' }}>
         <div style={{ width: '48px', height: '48px', borderRadius: '50%', backgroundImage: 'linear-gradient(135deg, #0D1E2F 0%, #1A3554 100%)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '15px', fontWeight: 700, flexShrink: 0, outline: '4px solid rgba(39,110,125,0.1)' }}>
