@@ -1,31 +1,95 @@
+import { useState, useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { useLang } from '../context/LanguageContext'
 import { content } from '../data/content'
 
-const cx = (base, ...classes) => [base, ...classes].filter(Boolean).join(' ')
+/* Parses a stat value string into { number, prefix, suffix }
+   e.g. "40+"  → { number: 40,   prefix: '',  suffix: '+' }
+        "1,000+"→ { number: 1000, prefix: '',  suffix: '+' }
+        "+40"   → { number: 40,   prefix: '+', suffix: '' }
+        "Licensed" → null (not numeric) */
+function parseStatValue(value) {
+  const cleaned = value.replace(/,/g, '')
+  const match = cleaned.match(/^(\D*)(\d+)(\D*)$/)
+  if (!match) return null
+  return { number: parseInt(match[2], 10), prefix: match[1], suffix: match[3] }
+}
+
+function formatNumber(n) {
+  return n >= 1000 ? n.toLocaleString('en-US') : String(n)
+}
+
+/* Animated counter — counts from 0 to `target` over `duration`ms once `active` is true */
+function CountUp({ value, active }) {
+  const parsed = parseStatValue(value)
+  const [display, setDisplay] = useState(parsed ? `${parsed.prefix}0${parsed.suffix}` : value)
+
+  // Keep non-numeric text in sync when language changes
+  useEffect(() => {
+    if (!parsed) setDisplay(value)
+  }, [value])
+
+  useEffect(() => {
+    if (!parsed) return
+    // Reset to 0 when leaving viewport
+    if (!active) { setDisplay(`${parsed.prefix}0${parsed.suffix}`); return }
+    const { number, prefix, suffix } = parsed
+    const duration = 1800
+    const start = performance.now()
+    let raf
+    const step = (now) => {
+      const elapsed = now - start
+      const progress = Math.min(elapsed / duration, 1)
+      // ease-out cubic
+      const eased = 1 - Math.pow(1 - progress, 3)
+      const current = Math.round(eased * number)
+      setDisplay(`${prefix}${formatNumber(current)}${suffix}`)
+      if (progress < 1) raf = requestAnimationFrame(step)
+    }
+    raf = requestAnimationFrame(step)
+    return () => cancelAnimationFrame(raf)
+  }, [active])
+
+  return <>{display}</>
+}
 
 export default function Hero() {
   const { lang } = useLang()
   const t = content[lang].hero
-  const trust = content[lang].trust
   const isRTL = lang === 'he'
+  // Trigger count-up when stats strip scrolls into view
+  const statsRef = useRef(null)
+  const [statsActive, setStatsActive] = useState(false)
+  useEffect(() => {
+    const el = statsRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => { setStatsActive(entry.isIntersecting) },
+      { threshold: 0.3 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <section
       style={{
-        background: '#276e7d',
-        paddingTop: '160px',
+        /* Hero photo — all layers combined to avoid CSS property override */
+        background: "linear-gradient(rgba(13,30,47,0.72), rgba(26,53,84,0.78)), radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px), url('/hero-bg.jpg'), linear-gradient(135deg, #0D1E2F 0%, #1A3554 100%)",
+        backgroundSize: 'cover, 32px 32px, cover, auto',
+        backgroundPosition: 'center, center, center, center',
+        backgroundRepeat: 'no-repeat, repeat, no-repeat, no-repeat',
+        paddingTop: '200px',
         paddingBottom: '0',
-        overflow: 'hidden',
+        overflow: 'visible',
         position: 'relative',
-        backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px)',
-        backgroundSize: '32px 32px',
       }}
     >
-      {/* Subtle glow accents */}
-      <div style={{ position: 'absolute', top: '-80px', right: '-80px', width: '400px', height: '400px', borderRadius: '50%', background: 'rgba(126,217,87,0.08)', filter: 'blur(80px)', pointerEvents: 'none' }} />
-      <div style={{ position: 'absolute', bottom: '0', left: '-60px', width: '300px', height: '300px', borderRadius: '50%', background: 'rgba(255,255,255,0.04)', filter: 'blur(60px)', pointerEvents: 'none' }} />
+      {/* Glow accents */}
+      <div style={{ position: 'absolute', top: '-80px', right: '-80px', width: '500px', height: '500px', borderRadius: '50%', background: 'rgba(196,136,58,0.07)', filter: 'blur(100px)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', bottom: '0', left: '-60px', width: '300px', height: '300px', borderRadius: '50%', background: 'rgba(255,255,255,0.03)', filter: 'blur(60px)', pointerEvents: 'none' }} />
 
-      {/* Main content — centered single column */}
+      {/* Main content */}
       <div
         style={{
           maxWidth: '820px',
@@ -44,9 +108,9 @@ export default function Hero() {
             fontWeight: 700,
             letterSpacing: '0.12em',
             textTransform: 'uppercase',
-            color: '#7ed957',
-            background: 'rgba(255,255,255,0.1)',
-            border: '1px solid rgba(255,255,255,0.15)',
+            color: '#C4883A',
+            background: 'rgba(255,255,255,0.08)',
+            border: '1px solid rgba(255,255,255,0.2)',
             borderRadius: '100px',
             padding: '6px 16px',
             marginBottom: '28px',
@@ -65,22 +129,35 @@ export default function Hero() {
             color: '#ffffff',
             lineHeight: 1.12,
             letterSpacing: '-0.025em',
-            marginBottom: '24px',
+            marginBottom: '16px',
           }}
         >
           {t.heading}
         </h1>
+        {/* Animated gold underline accent */}
+        <div
+          className="hero-animate hero-delay-2"
+          style={{
+            width: '64px',
+            height: '3px',
+            background: 'linear-gradient(90deg, #C4883A, #E4A855)',
+            borderRadius: '100px',
+            margin: '0 auto 24px',
+            animation: 'underlineGrow 0.9s cubic-bezier(0.4,0,0.2,1) 0.4s both',
+            transformOrigin: 'center',
+          }}
+        />
 
         {/* Subheading */}
         <p
           className="hero-animate hero-delay-3"
           style={{
             fontSize: '18px',
-            color: '#c8e8ed',
+            color: '#B0C8E0',
             lineHeight: 1.7,
-            marginBottom: '40px',
             maxWidth: '560px',
-            margin: isRTL ? '0 0 40px auto' : '0 auto 40px',
+            margin: '0 auto 40px',
+            textAlign: 'center',
           }}
         >
           {t.subheading}
@@ -94,29 +171,28 @@ export default function Hero() {
             flexWrap: 'wrap',
             gap: '16px',
             justifyContent: 'center',
-            marginBottom: '0',
           }}
         >
-          <a
-            href="/contact"
+          <Link
+            to="/contact"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              background: '#7ed957',
-              color: '#1a1a1a',
+              background: '#C4883A',
+              color: '#ffffff',
               fontWeight: 700,
               fontSize: '15px',
               padding: '14px 36px',
-              borderRadius: '10px',
-              boxShadow: '0 4px 20px rgba(126,217,87,0.35)',
+              borderRadius: '100px',
+              boxShadow: '0 4px 20px rgba(196,136,58,0.4)',
               textDecoration: 'none',
               transition: 'all 0.2s ease',
             }}
-            onMouseEnter={e => { e.currentTarget.style.background = '#65c040'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-            onMouseLeave={e => { e.currentTarget.style.background = '#7ed957'; e.currentTarget.style.transform = 'translateY(0)'; }}
+            onMouseEnter={e => { e.currentTarget.style.background = '#A96F25'; e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 28px rgba(196,136,58,0.5)'; }}
+            onMouseLeave={e => { e.currentTarget.style.background = '#C4883A'; e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(196,136,58,0.4)'; }}
           >
             {t.cta}
-          </a>
+          </Link>
           <a
             href="/services"
             style={{
@@ -127,7 +203,7 @@ export default function Hero() {
               fontWeight: 600,
               fontSize: '15px',
               padding: '14px 36px',
-              borderRadius: '10px',
+              borderRadius: '100px',
               border: '1.5px solid rgba(255,255,255,0.35)',
               textDecoration: 'none',
               transition: 'all 0.2s ease',
@@ -140,15 +216,15 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Trust Stats Bar */}
+      {/* Trust Bar — medium weight, sits at bottom of dark hero */}
       <div
+        ref={statsRef}
         className="hero-animate hero-delay-5"
         style={{
-          marginTop: '72px',
-          borderTop: '1px solid rgba(255,255,255,0.15)',
-          paddingTop: '40px',
-          paddingBottom: '40px',
-          position: 'relative',
+          marginTop: '64px',
+          borderTop: '1px solid rgba(255,255,255,0.1)',
+          paddingTop: '32px',
+          paddingBottom: '32px',
         }}
       >
         <div
@@ -162,15 +238,12 @@ export default function Hero() {
             gap: '16px',
           }}
         >
-          {trust.map((item, i) => (
-            <div
-              key={i}
-              style={{ textAlign: 'center' }}
-            >
-              <div style={{ fontSize: '26px', fontWeight: 800, color: '#ffffff', lineHeight: 1.2 }}>
-                {item.value}
+          {content[lang].trust.map((item, i) => (
+            <div key={i} style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: '24px', fontWeight: 800, color: '#ffffff', lineHeight: 1.2 }}>
+                <CountUp value={item.value} active={statsActive} />
               </div>
-              <div style={{ fontSize: '13px', color: '#a8d8df', marginTop: '4px', letterSpacing: '0.01em' }}>
+              <div style={{ fontSize: '13px', color: '#8AA8C5', marginTop: '6px', letterSpacing: '0.01em' }}>
                 {item.label}
               </div>
             </div>

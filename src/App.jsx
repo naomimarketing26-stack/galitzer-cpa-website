@@ -8,6 +8,7 @@ import ServicesPage from './pages/ServicesPage'
 import TeamPage from './pages/TeamPage'
 import ContactPage from './pages/ContactPage'
 import BlogPage from './pages/BlogPage'
+import NotFoundPage from './pages/NotFoundPage'
 import './index.css'
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
             <Route path="/team" element={<TeamPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
           <Footer />
         </div>

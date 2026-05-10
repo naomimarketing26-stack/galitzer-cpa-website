@@ -171,11 +171,10 @@ export default function ContactPage() {
     <main>
       {/* Hero */}
       <section style={{
-        background: '#276e7d',
+        backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(135deg, #0D1E2F 0%, #1A3554 100%)',
+        backgroundSize: '32px 32px, cover',
         paddingTop: '160px',
         paddingBottom: '100px',
-        backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px)',
-        backgroundSize: '32px 32px',
         textAlign: 'center',
       }}>
         <div style={{
@@ -183,16 +182,16 @@ export default function ContactPage() {
           margin: '0 auto',
           paddingLeft: 'clamp(24px, 5vw, 80px)',
           paddingRight: 'clamp(24px, 5vw, 80px)',
-          textAlign: isRTL ? 'right' : 'center',
+          textAlign: 'center',
         }}>
           <span style={{
             fontSize: '11px',
             fontWeight: 700,
             letterSpacing: '0.12em',
             textTransform: 'uppercase',
-            color: '#7ed957',
-            background: 'rgba(255,255,255,0.1)',
-            border: '1px solid rgba(255,255,255,0.15)',
+            color: '#C4883A',
+            background: 'rgba(255,255,255,0.08)',
+            border: '1px solid rgba(255,255,255,0.18)',
             borderRadius: '100px',
             padding: '6px 16px',
             marginBottom: '24px',
@@ -212,7 +211,7 @@ export default function ContactPage() {
           </h1>
           <p style={{
             fontSize: '18px',
-            color: '#c8e8ed',
+            color: '#B0C8E0',
             lineHeight: 1.6,
             marginBottom: 0,
           }}>
@@ -271,11 +270,11 @@ export default function ContactPage() {
                     alignItems: 'center',
                     justifyContent: 'center',
                   }}>
-                    <svg style={{ width: '32px', height: '32px', color: '#276e7d' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg style={{ width: '32px', height: '32px', color: '#1A3554' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <p style={{ fontSize: '18px', fontWeight: 600, color: '#276e7d' }}>{f.success}</p>
+                  <p style={{ fontSize: '18px', fontWeight: 600, color: '#1A3554' }}>{f.success}</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
@@ -338,8 +337,8 @@ export default function ContactPage() {
                     disabled={submitting}
                     style={{
                       width: '100%',
-                      backgroundColor: '#7ed957',
-                      color: '#1a1a1a',
+                      backgroundColor: '#C4883A',
+                      color: '#ffffff',
                       fontWeight: 600,
                       fontSize: '16px',
                       padding: '16px',
@@ -350,8 +349,8 @@ export default function ContactPage() {
                       transition: 'all 0.2s ease',
                       marginTop: '8px',
                     }}
-                    onMouseEnter={(e) => !submitting && (e.target.style.backgroundColor = '#65c040')}
-                    onMouseLeave={(e) => (e.target.style.backgroundColor = '#7ed957')}
+                    onMouseEnter={(e) => !submitting && (e.target.style.backgroundColor = '#A96F25')}
+                    onMouseLeave={(e) => (e.target.style.backgroundColor = '#C4883A')}
                   >
                     {submitting ? f.submitting : f.submit}
                   </button>
@@ -382,8 +381,8 @@ export default function ContactPage() {
                 index={0}
                 revealed={infoRevealed}
               >
-                <div style={{ display: 'flex', gap: '12px', marginBottom: '20px', flexDirection: isRTL ? 'row-reverse' : 'row' }}>
-                  <span style={{ color: '#7ed957', marginTop: '2px', flexShrink: 0 }}>
+                <div style={{ display: 'flex', gap: '12px', marginBottom: '20px', flexDirection: 'row' }}>
+                  <span style={{ color: '#C4883A', marginTop: '2px', flexShrink: 0 }}>
                     <svg style={{ width: '16px', height: '16px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -393,8 +392,8 @@ export default function ContactPage() {
                     {t.info.address}
                   </div>
                 </div>
-                <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexDirection: isRTL ? 'row-reverse' : 'row' }}>
-                  <span style={{ color: '#7ed957', flexShrink: 0 }}>
+                <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexDirection: 'row' }}>
+                  <span style={{ color: '#C4883A', flexShrink: 0 }}>
                     <svg style={{ width: '16px', height: '16px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
@@ -413,34 +412,34 @@ export default function ContactPage() {
                 index={1}
                 revealed={infoRevealed}
               >
-                <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', marginBottom: '16px', flexDirection: isRTL ? 'row-reverse' : 'row' }}>
-                  <span style={{ color: '#7ed957', marginTop: '2px', flexShrink: 0 }}>
+                <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', marginBottom: '16px', flexDirection: 'row' }}>
+                  <span style={{ color: '#C4883A', marginTop: '2px', flexShrink: 0 }}>
                     <svg style={{ width: '16px', height: '16px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 8V5z" />
                     </svg>
                   </span>
                   <div>
                     <span style={{ color: '#777777', fontSize: '12px' }}>{t.info.phoneIL}: </span>
-                    <a href={`tel:${officePhone.il}`} style={{ color: '#276e7d', textDecoration: 'none', fontWeight: 500, fontSize: '14px', display: 'block' }}>
+                    <a href={`tel:${officePhone.il}`} style={{ color: '#1A3554', textDecoration: 'none', fontWeight: 500, fontSize: '14px', display: 'block' }}>
                       {officePhone.il}
                     </a>
                   </div>
                 </div>
-                <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', marginBottom: '16px', flexDirection: isRTL ? 'row-reverse' : 'row' }}>
-                  <span style={{ color: '#7ed957', marginTop: '2px', flexShrink: 0 }}>
+                <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', marginBottom: '16px', flexDirection: 'row' }}>
+                  <span style={{ color: '#C4883A', marginTop: '2px', flexShrink: 0 }}>
                     <svg style={{ width: '16px', height: '16px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 8V5z" />
                     </svg>
                   </span>
                   <div>
                     <span style={{ color: '#777777', fontSize: '12px' }}>{t.info.phoneUS}: </span>
-                    <a href={`tel:${officePhone.us}`} style={{ color: '#276e7d', textDecoration: 'none', fontWeight: 500, fontSize: '14px', display: 'block' }}>
+                    <a href={`tel:${officePhone.us}`} style={{ color: '#1A3554', textDecoration: 'none', fontWeight: 500, fontSize: '14px', display: 'block' }}>
                       {officePhone.us}
                     </a>
                   </div>
                 </div>
-                <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', marginBottom: '16px', flexDirection: isRTL ? 'row-reverse' : 'row' }}>
-                  <span style={{ color: '#7ed957', marginTop: '2px', flexShrink: 0 }}>
+                <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', marginBottom: '16px', flexDirection: 'row' }}>
+                  <span style={{ color: '#C4883A', marginTop: '2px', flexShrink: 0 }}>
                     <svg style={{ width: '16px', height: '16px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
                     </svg>
@@ -450,13 +449,13 @@ export default function ContactPage() {
                     <span style={{ color: '#555555', fontSize: '14px', display: 'block' }}>{officePhone.ilFax}</span>
                   </div>
                 </div>
-                <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', flexDirection: isRTL ? 'row-reverse' : 'row' }}>
-                  <span style={{ color: '#7ed957', marginTop: '2px', flexShrink: 0 }}>
+                <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', flexDirection: 'row' }}>
+                  <span style={{ color: '#C4883A', marginTop: '2px', flexShrink: 0 }}>
                     <svg style={{ width: '16px', height: '16px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </span>
-                  <a href="mailto:info@galitzercpa.com" style={{ color: '#276e7d', textDecoration: 'none', fontWeight: 500, fontSize: '14px' }}>
+                  <a href="mailto:info@galitzercpa.com" style={{ color: '#1A3554', textDecoration: 'none', fontWeight: 500, fontSize: '14px' }}>
                     info@galitzercpa.com
                   </a>
                 </div>
@@ -558,7 +557,7 @@ function ContactCard({ isRTL, heading, index, revealed, children }) {
         e.currentTarget.style.transform = 'translateY(0)'
       }}
     >
-      <h3 style={{ fontSize: '15px', fontWeight: 700, color: '#276e7d', marginBottom: '16px' }}>
+      <h3 style={{ fontSize: '15px', fontWeight: 700, color: '#1A3554', marginBottom: '16px' }}>
         {heading}
       </h3>
       <div style={{ fontSize: '14px', color: '#666666', lineHeight: 1.6 }}>

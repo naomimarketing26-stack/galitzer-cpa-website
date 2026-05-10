@@ -35,6 +35,7 @@ export const pages = {
           id: 'us-tax',
           icon: '🇺🇸',
           title: 'U.S. Tax Services',
+          badge: 'Most Popular',
           color: 'bg-blue-50',
           accentColor: 'border-blue-400',
           items: [
@@ -50,6 +51,7 @@ export const pages = {
           id: 'israeli-tax',
           icon: '🇮🇱',
           title: 'Israeli Tax Services',
+          badge: 'Comprehensive',
           color: 'bg-[#e8f4f6]',
           accentColor: 'border-[#276e7d]',
           subGroups: [
@@ -77,6 +79,7 @@ export const pages = {
           id: 'accounting',
           icon: '📊',
           title: 'Accounting & Payroll Services',
+          badge: 'For Professionals',
           color: 'bg-green-50',
           accentColor: 'border-[#7ed957]',
           items: [
@@ -90,6 +93,7 @@ export const pages = {
           id: 'retirement',
           icon: '🏦',
           title: 'Retirement Planning & Tax Advisory',
+          badge: 'Most Asked',
           color: 'bg-amber-50',
           accentColor: 'border-amber-400',
           items: [
@@ -139,6 +143,7 @@ export const pages = {
           id: 'us-tax',
           icon: '🇺🇸',
           title: 'שירותי מס אמריקאי',
+          badge: 'הנפוץ ביותר',
           color: 'bg-blue-50',
           accentColor: 'border-blue-400',
           items: [
@@ -154,6 +159,7 @@ export const pages = {
           id: 'israeli-tax',
           icon: '🇮🇱',
           title: 'שירותי מס ישראלי',
+          badge: 'מקיף',
           color: 'bg-[#e8f4f6]',
           accentColor: 'border-[#276e7d]',
           subGroups: [
@@ -181,6 +187,7 @@ export const pages = {
           id: 'accounting',
           icon: '📊',
           title: 'שירותי הנהלת חשבונות ושכר',
+          badge: 'לעסקים',
           color: 'bg-green-50',
           accentColor: 'border-[#7ed957]',
           items: [
@@ -194,6 +201,7 @@ export const pages = {
           id: 'retirement',
           icon: '🏦',
           title: 'תכנון פרישה וייעוץ מס',
+          badge: 'נשאל הכי הרבה',
           color: 'bg-amber-50',
           accentColor: 'border-amber-400',
           items: [

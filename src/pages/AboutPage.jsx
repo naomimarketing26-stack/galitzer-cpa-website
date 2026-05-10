@@ -31,19 +31,18 @@ export default function AboutPage() {
       {/* Hero */}
       <section
         style={{
-          background: '#276e7d',
+          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(135deg, #0D1E2F 0%, #1A3554 100%)',
+          backgroundSize: '32px 32px, cover',
           paddingTop: '160px',
           paddingBottom: '80px',
-          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px)',
-          backgroundSize: '32px 32px',
         }}
       >
-        <div style={{ ...narrowContainer, textAlign: isRTL ? 'right' : 'center' }}>
+        <div style={{ ...narrowContainer, textAlign: 'center' }}>
           <span
             className="hero-animate hero-delay-1 inline-block"
             style={{
               fontSize: '11px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase',
-              color: '#7ed957', background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.15)',
+              color: '#C4883A', background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.18)',
               borderRadius: '100px', padding: '6px 16px', marginBottom: '24px', display: 'inline-block',
             }}
           >
@@ -72,7 +71,7 @@ export default function AboutPage() {
               transition: 'opacity 0.6s ease, transform 0.6s ease',
             }}
           >
-            <p style={{ fontSize: '20px', fontWeight: 600, color: '#276e7d', lineHeight: 1.65, marginBottom: '28px', textAlign: isRTL ? 'right' : 'left' }}>
+            <p style={{ fontSize: '20px', fontWeight: 600, color: '#1A3554', lineHeight: 1.65, marginBottom: '28px', textAlign: isRTL ? 'right' : 'left' }}>
               {t.intro}
             </p>
           </div>
@@ -119,7 +118,7 @@ export default function AboutPage() {
                 onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 1px 4px rgba(0,0,0,0.05)'; }}
               >
                 <div style={{ fontSize: '32px', marginBottom: '16px' }}>{v.icon}</div>
-                <h3 style={{ fontSize: '15px', fontWeight: 700, color: '#276e7d', marginBottom: '10px' }}>{v.title}</h3>
+                <h3 style={{ fontSize: '15px', fontWeight: 700, color: '#1A3554', marginBottom: '10px' }}>{v.title}</h3>
                 <p style={{ fontSize: '14px', color: '#666666', lineHeight: 1.65 }}>{v.desc}</p>
               </div>
             ))}

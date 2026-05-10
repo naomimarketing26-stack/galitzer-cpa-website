@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from 'react'
 import { useLang } from '../context/LanguageContext'
 import { content } from '../data/content'
 import { useReveal } from '../hooks/useReveal'
@@ -13,92 +14,183 @@ export default function Testimonials() {
   const { lang } = useLang()
   const t = content[lang].testimonials
   const isRTL = lang === 'he'
+  const items = t.items
 
-  const [headingRef, headingRevealed] = useReveal()
-  const [gridRef, gridRevealed] = useReveal()
+  const [active, setActive] = useState(0)
+  const [visible, setVisible] = useState(true)
+  const [paused, setPaused] = useState(false)
+  const timerRef = useRef(null)
+
+  const goTo = (idx) => {
+    const next = typeof idx === 'function' ? idx(active) : idx
+    setVisible(false)
+    setTimeout(() => {
+      setActive(next)
+      setVisible(true)
+    }, 260)
+  }
+
+  useEffect(() => {
+    if (paused) return
+    timerRef.current = setInterval(() => {
+      setActive(prev => {
+        const next = (prev + 1) % items.length
+        setVisible(false)
+        setTimeout(() => setVisible(true), 260)
+        return next
+      })
+    }, 5500)
+    return () => clearInterval(timerRef.current)
+  }, [paused, items.length])
+
+  const [sectionRef, sectionRevealed] = useReveal()
+
+  const item = items[active]
 
   return (
-    <section style={{ backgroundColor: '#ffffff', paddingTop: '96px', paddingBottom: '96px' }}>
+    <section
+      style={{ backgroundColor: '#ffffff', paddingTop: '96px', paddingBottom: '96px' }}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
       <div style={container}>
-        {/* Heading */}
+
+        {/* Section heading */}
         <div
-          ref={headingRef}
+          ref={sectionRef}
           style={{
             textAlign: 'center',
-            marginBottom: '56px',
-            opacity: headingRevealed ? 1 : 0,
-            transform: headingRevealed ? 'translateY(0)' : 'translateY(20px)',
+            opacity: sectionRevealed ? 1 : 0,
+            transform: sectionRevealed ? 'translateY(0)' : 'translateY(20px)',
             transition: 'opacity 0.6s ease, transform 0.6s ease',
           }}
         >
-          <h2 style={{ fontSize: 'clamp(28px, 3.5vw, 44px)', fontWeight: 700, color: '#276e7d', lineHeight: 1.25 }}>
+          <h2 style={{
+            fontSize: 'clamp(28px, 3.5vw, 44px)',
+            fontWeight: 700,
+            color: '#1A3554',
+            lineHeight: 1.25,
+            marginBottom: '64px',
+          }}>
             {t.heading}
           </h2>
-        </div>
 
-        {/* Cards */}
-        <div
-          ref={gridRef}
-          style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}
-        >
-          {t.items.map((item, i) => (
-            <div
-              key={i}
-              className="hover:-translate-y-1 transition-all duration-300"
+          {/* Quote body — floats on the white page, no card */}
+          <div
+            style={{
+              maxWidth: '680px',
+              margin: '0 auto',
+              position: 'relative',
+              opacity: visible ? 1 : 0,
+              transform: visible ? 'translateY(0)' : 'translateY(10px)',
+              transition: 'opacity 0.26s ease, transform 0.26s ease',
+            }}
+          >
+            {/* Giant decorative quotation mark */}
+            <span
+              aria-hidden="true"
               style={{
-                position: 'relative',
-                overflow: 'hidden',
-                background: '#ffffff',
-                border: '1px solid #eef1f4',
-                borderTop: '4px solid #7ed957',
-                borderRadius: '16px',
-                padding: '32px',
-                boxShadow: '0 1px 4px rgba(0,0,0,0.05)',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '16px',
-                textAlign: isRTL ? 'right' : 'left',
-                opacity: gridRevealed ? 1 : 0,
-                transform: gridRevealed ? 'translateY(0)' : 'translateY(24px)',
-                transition: `opacity 0.6s ease ${i * 100}ms, transform 0.6s ease ${i * 100}ms, box-shadow 0.3s ease`,
+                position: 'absolute',
+                top: isRTL ? '-10px' : '-20px',
+                [isRTL ? 'right' : 'left']: isRTL ? '-8px' : '-16px',
+                fontSize: 'clamp(100px, 14vw, 160px)',
+                fontFamily: 'Georgia, "Times New Roman", serif',
+                lineHeight: 1,
+                color: 'rgba(196,136,58,0.10)',
+                pointerEvents: 'none',
+                userSelect: 'none',
+                zIndex: 0,
               }}
-              onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 8px 28px rgba(39,110,125,0.1)'; }}
-              onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 1px 4px rgba(0,0,0,0.05)'; }}
             >
-              {/* Decorative quote */}
-              <span
-                style={{
-                  position: 'absolute',
-                  top: '12px',
-                  [isRTL ? 'right' : 'left']: '16px',
-                  fontSize: '72px',
-                  fontFamily: 'Georgia, serif',
-                  lineHeight: 1,
-                  color: 'rgba(39,110,125,0.07)',
-                  pointerEvents: 'none',
-                  userSelect: 'none',
-                }}
-              >
-                "
-              </span>
+              {isRTL ? '”' : '“'}
+            </span>
 
-              {/* Stars */}
-              <div style={{ display: 'flex', gap: '3px', justifyContent: isRTL ? 'flex-end' : 'flex-start' }}>
-                {Array.from({ length: item.stars }).map((_, j) => (
-                  <span key={j} style={{ color: '#7ed957', fontSize: '16px' }}>★</span>
-                ))}
-              </div>
-
-              <p style={{ fontSize: '14px', color: '#555555', lineHeight: 1.7, fontStyle: 'italic', flexGrow: 1, position: 'relative', zIndex: 1 }}>
-                "{item.quote}"
-              </p>
-
-              <div>
-                <p style={{ fontSize: '14px', fontWeight: 700, color: '#1a1a1a' }}>{item.name}</p>
-                <p style={{ fontSize: '12px', color: '#888888', marginTop: '3px' }}>{item.location}</p>
-              </div>
+            {/* Stars */}
+            <div style={{
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '4px',
+              marginBottom: '28px',
+              direction: 'ltr',
+              position: 'relative',
+              zIndex: 1,
+            }}>
+              {Array.from({ length: item.stars }).map((_, j) => (
+                <span key={j} style={{ color: '#C4883A', fontSize: '20px' }}>★</span>
+              ))}
             </div>
-          ))}
+
+            {/* Quote text */}
+            <p style={{
+              fontSize: 'clamp(18px, 2.2vw, 22px)',
+              color: '#2D3F55',
+              lineHeight: 1.8,
+              fontStyle: 'italic',
+              fontWeight: 400,
+              textAlign: 'center',
+              marginBottom: '36px',
+              position: 'relative',
+              zIndex: 1,
+              letterSpacing: '0.01em',
+            }}>
+              {item.quote}
+            </p>
+
+            {/* Thin divider */}
+            <div style={{
+              width: '40px',
+              height: '2px',
+              background: 'linear-gradient(90deg, #C4883A, #E4A855)',
+              borderRadius: '100px',
+              margin: '0 auto 24px',
+            }} />
+
+            {/* Client info — centered, no avatar */}
+            <div style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
+              <p style={{
+                fontSize: '15px',
+                fontWeight: 700,
+                color: '#1A3554',
+                marginBottom: '4px',
+              }}>
+                {item.name}
+              </p>
+              <p style={{
+                fontSize: '13px',
+                color: '#9AA3AE',
+                letterSpacing: '0.03em',
+              }}>
+                {item.location}
+              </p>
+            </div>
+          </div>
+
+          {/* Dots navigation */}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '10px',
+            marginTop: '48px',
+          }}>
+            {items.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                aria-label={`Go to testimonial ${i + 1}`}
+                style={{
+                  width: i === active ? '28px' : '8px',
+                  height: '8px',
+                  borderRadius: '100px',
+                  background: i === active ? '#C4883A' : 'rgba(196,136,58,0.25)',
+                  border: 'none',
+                  cursor: 'pointer',
+                  padding: 0,
+                  transition: 'all 0.35s ease',
+                }}
+              />
+            ))}
+          </div>
+
         </div>
       </div>
     </section>

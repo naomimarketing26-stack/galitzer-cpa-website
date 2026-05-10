@@ -35,9 +35,14 @@ All user-facing text lives in `src/data/content.js` as a large `{ en, he }` obje
 
 **Styling**
 Tailwind CSS 4 via the `@tailwindcss/vite` plugin (no `tailwind.config.js` file). Custom theme tokens are defined in `src/index.css`:
-- `--color-primary`: `#276e7d` (teal)
-- `--color-accent`: `#7ed957` (green)
-- Fonts: Inter (EN), Heebo (HE) loaded from Google Fonts
+- `--color-primary`: `#1A3554` (navy)
+- `--color-primary-dark`: `#0F2B47`
+- `--color-accent`: `#C4883A` (gold)
+- `--color-accent-dark`: `#A96F25`
+- Fonts: Plus Jakarta Sans (EN), Rubik (HE) loaded from Google Fonts
+
+**Navigation**
+The navbar (`src/components/Navbar.jsx`) uses a white background on all pages with navy (`#1A3554`) text and gold (`#C4883A`) accents. A gold scroll-progress bar appears at the bottom of the header.
 
 **Adding content or translations**
 Edit `src/data/content.js` — add both `en` and `he` keys for any new string. Never hardcode display text inside components.

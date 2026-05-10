@@ -17,14 +17,14 @@ export default function FinalCTA({ headingOverride, ctaOverride } = {}) {
       style={{
         position: 'relative',
         overflow: 'hidden',
-        background: '#276e7d',
+        background: 'linear-gradient(135deg, #0D1E2F 0%, #1A3554 100%)',
         paddingTop: '96px',
         paddingBottom: '96px',
       }}
     >
       {/* Decorative blobs */}
-      <div style={{ position: 'absolute', top: '-60px', left: '-60px', width: '320px', height: '320px', borderRadius: '50%', background: 'rgba(255,255,255,0.04)', filter: 'blur(60px)', pointerEvents: 'none' }} />
-      <div style={{ position: 'absolute', bottom: '-80px', right: '-80px', width: '400px', height: '400px', borderRadius: '50%', background: 'rgba(126,217,87,0.1)', filter: 'blur(80px)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', top: '-60px', left: '-60px', width: '320px', height: '320px', borderRadius: '50%', background: 'rgba(255,255,255,0.03)', filter: 'blur(60px)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', bottom: '-80px', right: '-80px', width: '400px', height: '400px', borderRadius: '50%', background: 'rgba(196,136,58,0.08)', filter: 'blur(80px)', pointerEvents: 'none' }} />
 
       <div
         ref={contentRef}
@@ -44,7 +44,7 @@ export default function FinalCTA({ headingOverride, ctaOverride } = {}) {
           {heading}
         </h2>
         {t.subheading && (
-          <p style={{ fontSize: '17px', color: '#c8e8ed', lineHeight: 1.7, marginBottom: '40px' }}>
+          <p style={{ fontSize: '17px', color: '#B0C8E0', lineHeight: 1.7, marginBottom: '40px' }}>
             {t.subheading}
           </p>
         )}
@@ -53,18 +53,18 @@ export default function FinalCTA({ headingOverride, ctaOverride } = {}) {
           style={{
             display: 'inline-flex',
             alignItems: 'center',
-            background: '#7ed957',
-            color: '#1a1a1a',
+            background: '#C4883A',
+            color: '#ffffff',
             fontWeight: 700,
             fontSize: '16px',
             padding: '16px 48px',
-            borderRadius: '10px',
+            borderRadius: '100px',
             textDecoration: 'none',
-            boxShadow: '0 4px 20px rgba(126,217,87,0.35)',
+            boxShadow: '0 4px 20px rgba(196,136,58,0.4)',
             transition: 'all 0.2s ease',
           }}
-          onMouseEnter={e => { e.currentTarget.style.background = '#65c040'; e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 28px rgba(126,217,87,0.45)'; }}
-          onMouseLeave={e => { e.currentTarget.style.background = '#7ed957'; e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(126,217,87,0.35)'; }}
+          onMouseEnter={e => { e.currentTarget.style.background = '#A96F25'; e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 28px rgba(196,136,58,0.5)'; }}
+          onMouseLeave={e => { e.currentTarget.style.background = '#C4883A'; e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(196,136,58,0.4)'; }}
         >
           {cta}
         </a>

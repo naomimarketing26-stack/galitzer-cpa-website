@@ -31,7 +31,7 @@ export default function WhyUs() {
             transition: 'opacity 0.6s ease, transform 0.6s ease',
           }}
         >
-          <h2 style={{ fontSize: 'clamp(28px, 3.5vw, 44px)', fontWeight: 700, color: '#276e7d', lineHeight: 1.25 }}>
+          <h2 style={{ fontSize: 'clamp(28px, 3.5vw, 44px)', fontWeight: 700, color: '#1A3554', lineHeight: 1.25 }}>
             {t.heading}
           </h2>
         </div>
@@ -46,20 +46,20 @@ export default function WhyUs() {
               key={i}
               className="hover:-translate-y-1 transition-all duration-300"
               style={{
-                background: '#ffffff',
-                border: '1px solid #eef1f4',
-                borderRadius: '16px',
+                background: '#F7F9FC',
+                border: '1.5px solid #E8EDF3',
+                borderRadius: '20px',
                 padding: '32px',
-                boxShadow: '0 1px 4px rgba(0,0,0,0.05)',
+                boxShadow: '0 1px 4px rgba(0,0,0,0.04)',
                 opacity: gridRevealed ? 1 : 0,
                 transform: gridRevealed ? 'translateY(0)' : 'translateY(24px)',
                 transition: `opacity 0.6s ease ${i * 80}ms, transform 0.6s ease ${i * 80}ms, box-shadow 0.3s ease`,
               }}
-              onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 8px 28px rgba(39,110,125,0.12)'; }}
-              onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 1px 4px rgba(0,0,0,0.05)'; }}
+              onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 10px 32px rgba(26,53,84,0.13)'; e.currentTarget.style.borderColor = '#C4883A'; e.currentTarget.style.background = '#ffffff'; e.currentTarget.style.transform = 'translateY(-4px)'; }}
+              onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 1px 4px rgba(0,0,0,0.04)'; e.currentTarget.style.borderColor = '#E8EDF3'; e.currentTarget.style.background = '#F7F9FC'; e.currentTarget.style.transform = 'translateY(0)'; }}
             >
               <div style={{ fontSize: '32px', marginBottom: '16px', textAlign: isRTL ? 'right' : 'left' }}>{item.icon}</div>
-              <h3 style={{ fontSize: '15px', fontWeight: 700, color: '#276e7d', marginBottom: '10px', textAlign: isRTL ? 'right' : 'left' }}>
+              <h3 style={{ fontSize: '15px', fontWeight: 700, color: '#1A3554', marginBottom: '10px', textAlign: isRTL ? 'right' : 'left' }}>
                 {item.title}
               </h3>
               <p style={{ fontSize: '14px', color: '#666666', lineHeight: 1.65, textAlign: isRTL ? 'right' : 'left' }}>
