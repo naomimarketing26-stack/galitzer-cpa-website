@@ -288,7 +288,7 @@ export default function TeamPage() {
 
       {/* Bottom CTA */}
       <section style={{ backgroundColor: '#e8f4f6', paddingTop: '80px', paddingBottom: '80px' }}>
-        <div ref={ctaRef} style={{ maxWidth: '600px', margin: '0 auto', paddingLeft: 'clamp(24px, 5vw, 80px)', paddingRight: 'clamp(24px, 5vw, 80px)', textAlign: isRTL ? 'right' : 'center', opacity: ctaRevealed ? 1 : 0, transform: ctaRevealed ? 'translateY(0)' : 'translateY(20px)', transition: 'opacity 0.6s ease, transform 0.6s ease' }}>
+        <div ref={ctaRef} style={{ maxWidth: '600px', margin: '0 auto', paddingLeft: 'clamp(24px, 5vw, 80px)', paddingRight: 'clamp(24px, 5vw, 80px)', textAlign: 'center', opacity: ctaRevealed ? 1 : 0, transform: ctaRevealed ? 'translateY(0)' : 'translateY(20px)', transition: 'opacity 0.6s ease, transform 0.6s ease' }}>
           <p style={{ fontSize: '22px', fontWeight: 700, color: '#1A3554', marginBottom: '12px' }}>{t.notSure}</p>
           <p style={{ fontSize: '16px', color: '#555555', lineHeight: 1.7, marginBottom: '32px' }}>{t.notSureSub}</p>
           <a href="/contact" style={{ display: 'inline-flex', alignItems: 'center', background: '#C4883A', color: '#ffffff', fontWeight: 700, fontSize: '15px', padding: '14px 40px', borderRadius: '10px', textDecoration: 'none', boxShadow: '0 4px 16px rgba(196,136,58,0.3)', transition: 'all 0.2s ease' }}
