@@ -17,12 +17,12 @@ const TABS = {
 
 const featuredLinks = {
   en: [
-    { name: 'Internal Revenue Service (IRS)', desc: 'Official U.S. tax guidance and forms', url: 'https://www.irs.gov', flag: '🇺🇸', bg: '#1A3554', tab: 'US' },
-    { name: 'Israel Income Tax Authority', desc: 'Israeli income tax and compliance information', url: 'https://www.gov.il/en/departments/israel_tax_authority', flag: '🇮🇱', bg: '#0F2B47', tab: 'Israel' },
+    { name: 'Internal Revenue Service (IRS)', desc: 'Official U.S. tax guidance and forms', url: 'https://www.irs.gov', accent: '#1A3554', tab: 'US' },
+    { name: 'Israel Income Tax Authority', desc: 'Israeli income tax and compliance information', url: 'https://www.gov.il/en/departments/israel_tax_authority', accent: '#C4883A', tab: 'Israel' },
   ],
   he: [
-    { name: 'Internal Revenue Service (IRS)', desc: 'הנחיות ובקשות מס רשמיות של ארה"ב', url: 'https://www.irs.gov', flag: '🇺🇸', bg: '#1A3554', tab: 'ארה״ב' },
-    { name: 'רשות המסים בישראל', desc: 'מידע על מס הכנסה ועמידה בדרישות ישראל', url: 'https://www.gov.il/he/departments/israel_tax_authority', flag: '🇮🇱', bg: '#0F2B47', tab: 'ישראל' },
+    { name: 'רשות המסים האמריקאית (IRS)', desc: 'הנחיות ובקשות מס רשמיות של ארה"ב', url: 'https://www.irs.gov', accent: '#1A3554', tab: 'ארה״ב' },
+    { name: 'רשות המסים בישראל', desc: 'מידע על מס הכנסה ועמידה בדרישות ישראל', url: 'https://www.gov.il/he/departments/israel_tax_authority', accent: '#C4883A', tab: 'ישראל' },
   ],
 }
 
@@ -32,7 +32,7 @@ const listLinks = {
     { name: 'Israeli National Insurance Authority (Bituach Leumi)', desc: 'Israeli social security and benefits', url: 'https://www.btl.gov.il', flag: '🛡️', tab: 'Israel' },
   ],
   he: [
-    { name: 'Social Security Administration', desc: 'הטבות פרישה ותנאי זכאות בארה"ב', url: 'https://www.ssa.gov', flag: '📋', tab: 'ארה״ב' },
+    { name: 'המינהל לביטוח לאומי (ארה"ב)', desc: 'הטבות פרישה ותנאי זכאות בארה"ב', url: 'https://www.ssa.gov', flag: '📋', tab: 'ארה״ב' },
     { name: 'המוסד לביטוח לאומי', desc: 'ביטוח לאומי וגמלאות בישראל', url: 'https://www.btl.gov.il', flag: '🛡️', tab: 'ישראל' },
   ],
 }
@@ -85,8 +85,8 @@ export default function BlogPage() {
                   fontWeight: 600,
                   cursor: 'pointer',
                   transition: 'all 0.2s ease',
-                  backgroundColor: activeTab === tab ? '#1A3554' : '#ffffff',
-                  borderColor: activeTab === tab ? '#1A3554' : '#e2e2e2',
+                  backgroundColor: activeTab === tab ? '#C4883A' : '#ffffff',
+                  borderColor: activeTab === tab ? '#C4883A' : '#e2e2e2',
                   color: activeTab === tab ? '#ffffff' : '#555555',
                 }}
               >
@@ -107,23 +107,26 @@ export default function BlogPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{
-                        backgroundColor: link.bg,
+                        backgroundColor: '#ffffff',
+                        border: '1px solid rgba(0,0,0,0.08)',
+                        borderTop: `3px solid ${link.accent}`,
                         borderRadius: '16px',
                         padding: '28px',
                         textDecoration: 'none',
                         display: 'flex',
                         flexDirection: 'column',
                         gap: '10px',
+                        boxShadow: '0 2px 12px rgba(0,0,0,0.05)',
                         transition: 'all 0.2s ease',
                         textAlign: isRTL ? 'right' : 'left',
                       }}
-                      onMouseEnter={e => { e.currentTarget.style.opacity = '0.9'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-                      onMouseLeave={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.transform = 'translateY(0)'; }}
+                      onMouseEnter={e => { e.currentTarget.style.borderColor = link.accent; e.currentTarget.style.boxShadow = '0 6px 24px rgba(0,0,0,0.10)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+                      onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(0,0,0,0.08)'; e.currentTarget.style.boxShadow = '0 2px 12px rgba(0,0,0,0.05)'; e.currentTarget.style.transform = 'translateY(0)'; }}
                     >
-                      <span style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)' }}>{link.tab}</span>
-                      <h3 style={{ fontSize: '17px', fontWeight: 700, color: '#ffffff', margin: '0' }}>{link.name}</h3>
-                      <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.7)', margin: '0' }}>{link.desc}</p>
-                      <span style={{ fontSize: '13px', fontWeight: 600, color: '#C4883A', marginTop: '4px' }}>
+                      <span style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: link.accent }}>{link.tab}</span>
+                      <h3 style={{ fontSize: '17px', fontWeight: 700, color: '#1A3554', margin: '0' }}>{link.name}</h3>
+                      <p style={{ fontSize: '13px', color: '#777777', margin: '0' }}>{link.desc}</p>
+                      <span style={{ fontSize: '13px', fontWeight: 600, color: link.accent, marginTop: '4px' }}>
                         {lang === 'en' ? '↗ Visit Site' : '↗ בקר באתר'}
                       </span>
                     </a>

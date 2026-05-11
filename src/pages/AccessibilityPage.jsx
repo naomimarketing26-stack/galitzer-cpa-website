@@ -105,11 +105,11 @@ export default function AccessibilityPage() {
   const isRTL = lang === 'he'
 
   return (
-    <main style={{ background: '#f4f7f9', minHeight: '100vh', paddingTop: '120px', paddingBottom: '80px', direction: 'rtl' }}>
+    <main style={{ background: '#f4f7f9', minHeight: '100vh', paddingTop: '120px', paddingBottom: '80px', direction: isRTL ? 'rtl' : 'ltr' }}>
       <div style={{ maxWidth: '800px', margin: '0 auto', paddingLeft: 'clamp(24px, 5vw, 48px)', paddingRight: 'clamp(24px, 5vw, 48px)' }}>
 
         {/* Header */}
-        <div style={{ marginBottom: '48px', textAlign: 'right' }}>
+        <div style={{ marginBottom: '48px', textAlign: isRTL ? 'right' : 'left' }}>
           <div style={{ display: 'inline-block', background: '#1A3554', color: '#C4883A', fontSize: '12px', fontWeight: 700, letterSpacing: '0.05em', padding: '6px 14px', borderRadius: '100px', marginBottom: '20px', direction: 'ltr' }}>
             IS 5568 / WCAG 2.1 AA
           </div>
@@ -120,14 +120,14 @@ export default function AccessibilityPage() {
         </div>
 
         {/* Intro */}
-        <div style={{ background: '#ffffff', borderRadius: '16px', padding: '28px 32px', marginBottom: '24px', borderRight: '4px solid #C4883A' }}>
-          <p style={{ fontSize: '15px', color: '#444', lineHeight: 1.8, textAlign: 'right' }}>{t.intro}</p>
+        <div style={{ background: '#ffffff', borderRadius: '16px', padding: '28px 32px', marginBottom: '24px', [isRTL ? 'borderRight' : 'borderLeft']: '4px solid #C4883A' }}>
+          <p style={{ fontSize: '15px', color: '#444', lineHeight: 1.8, textAlign: isRTL ? 'right' : 'left' }}>{t.intro}</p>
         </div>
 
         {/* Sections */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           {t.sections.map((sec, i) => (
-            <div key={i} style={{ background: '#ffffff', borderRadius: '16px', padding: '28px 32px', textAlign: 'right' }}>
+            <div key={i} style={{ background: '#ffffff', borderRadius: '16px', padding: '28px 32px', textAlign: isRTL ? 'right' : 'left' }}>
               <h2 style={{ fontSize: '18px', fontWeight: 700, color: '#1A3554', marginBottom: '16px' }}>
                 {sec.heading}
               </h2>

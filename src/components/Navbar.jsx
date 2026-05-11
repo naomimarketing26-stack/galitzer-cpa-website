@@ -101,7 +101,7 @@ export default function Navbar() {
 
       <div style={navContainer}>
         {/* Logo */}
-        <Link to="/" className={`flex items-center gap-1 shrink-0 ${isRTL ? 'flex-row-reverse' : ''}`}>
+        <Link to="/" style={{ order: 3 }} className="flex items-center gap-1 shrink-0">
           <div style={{ direction: 'ltr', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
             <span className="text-xl font-extrabold tracking-tight leading-none text-[#1A3554]">S.GALITZER</span>
             <span className="text-xl font-extrabold text-[#C4883A] leading-none mx-0.5">&</span>
@@ -110,7 +110,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-7">
+        <nav style={{ order: 2 }} className="hidden lg:flex items-center gap-7">
           {links.map(link => (
             <Link
               key={link.label}
@@ -127,7 +127,7 @@ export default function Navbar() {
         </nav>
 
         {/* Right side */}
-        <div className="flex items-center gap-3">
+        <div style={{ order: 1 }} className="flex items-center gap-3">
           <FlagToggle />
           <Link
             to="/contact"
@@ -156,12 +156,18 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <div
         className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          menuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+          menuOpen ? 'max-h-[480px] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
+        {/* Section 1: Nav links */}
         <div
-          className="flex flex-col gap-4 py-4 bg-white border-t border-[#eef1f4]"
-          style={{ paddingLeft: 'clamp(24px, 5vw, 80px)', paddingRight: 'clamp(24px, 5vw, 80px)' }}
+          className="flex flex-col gap-4 bg-white border-t border-[#eef1f4]"
+          style={{
+            paddingLeft: 'clamp(24px, 5vw, 80px)',
+            paddingRight: 'clamp(24px, 5vw, 80px)',
+            paddingTop: '20px',
+            paddingBottom: '20px',
+          }}
         >
           {links.map(link => (
             <Link
@@ -174,15 +180,38 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <div className="flex items-center gap-3 pt-2 border-t border-[#eef1f4]">
-            <MobileFlagToggle />
-            <Link
-              to="/contact"
-              className="flex-1 text-center bg-[#C4883A] text-white text-sm font-semibold px-6 py-3 rounded-full"
-            >
-              {t.cta}
-            </Link>
-          </div>
+        </div>
+
+        {/* Section 2: CTA button */}
+        <div
+          className="bg-white border-t border-[#eef1f4]"
+          style={{
+            paddingLeft: 'clamp(24px, 5vw, 80px)',
+            paddingRight: 'clamp(24px, 5vw, 80px)',
+            paddingTop: '20px',
+            paddingBottom: '20px',
+          }}
+        >
+          <Link
+            to="/contact"
+            className="block w-full text-center bg-[#C4883A] hover:bg-[#A96F25] text-white font-bold transition-colors"
+            style={{ padding: '16px 24px', borderRadius: '12px', fontSize: '15px' }}
+          >
+            {t.cta}
+          </Link>
+        </div>
+
+        {/* Section 3: Language toggle */}
+        <div
+          className="flex justify-end bg-white border-t border-[#eef1f4]"
+          style={{
+            paddingLeft: 'clamp(24px, 5vw, 80px)',
+            paddingRight: 'clamp(24px, 5vw, 80px)',
+            paddingTop: '12px',
+            paddingBottom: '12px',
+          }}
+        >
+          <MobileFlagToggle />
         </div>
       </div>
     </header>
