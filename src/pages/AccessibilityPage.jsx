@@ -141,17 +141,17 @@ export default function AccessibilityPage() {
               {sec.contact && (
                 <div style={{ background: '#f4f7f9', borderRadius: '10px', padding: '16px 20px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                   <p style={{ fontSize: '15px', color: '#1A3554', fontWeight: 700 }}>{sec.contact.name}</p>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', justifyContent: 'flex-end' }}>
-                    <span style={{ fontSize: '14px', color: '#555' }}>{sec.contact.phone}</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', justifyContent: 'flex-start' }}>
                     <span style={{ fontSize: '16px' }}>📞</span>
+                    <span style={{ fontSize: '14px', color: '#555' }}>{sec.contact.phone}</span>
                   </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', justifyContent: 'flex-end' }}>
-                    <a href={`mailto:${sec.contact.email}`} style={{ fontSize: '14px', color: '#C4883A', textDecoration: 'none', direction: 'ltr' }}>{sec.contact.email}</a>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', justifyContent: 'flex-start' }}>
                     <span style={{ fontSize: '16px' }}>✉️</span>
+                    <a href={`mailto:${sec.contact.email}`} style={{ fontSize: '14px', color: '#C4883A', textDecoration: 'none', direction: 'ltr' }}>{sec.contact.email}</a>
                   </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', justifyContent: 'flex-end' }}>
-                    <span style={{ fontSize: '14px', color: '#555' }}>{sec.contact.address}</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', justifyContent: 'flex-start' }}>
                     <span style={{ fontSize: '16px' }}>📍</span>
+                    <span style={{ fontSize: '14px', color: '#555' }}>{sec.contact.address}</span>
                   </div>
                 </div>
               )}
@@ -159,9 +159,9 @@ export default function AccessibilityPage() {
               {sec.items && (
                 <ul style={{ display: 'flex', flexDirection: 'column', gap: '10px', listStyle: 'none', padding: 0, margin: 0 }}>
                   {sec.items.map((item, j) => (
-                    <li key={j} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', justifyContent: 'flex-end' }}>
-                      <span style={{ fontSize: '14px', color: '#555', lineHeight: 1.7 }}>{item}</span>
+                    <li key={j} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', justifyContent: 'flex-start' }}>
                       <span style={{ color: '#C4883A', fontWeight: 700, flexShrink: 0, marginTop: '2px' }}>✓</span>
+                      <span style={{ fontSize: '14px', color: '#555', lineHeight: 1.7 }}>{item}</span>
                     </li>
                   ))}
                 </ul>
