@@ -162,7 +162,7 @@ export default function ServicesPage() {
                 {isRTL ? 'השירותים שלנו' : 'Our Services'}
               </h2>
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(480px, 1fr))', gap: '24px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(480px, 100%), 1fr))', gap: '24px' }}>
               {t.categories.map((cat, i) => (
                 <ServiceCard key={cat.id} category={cat} isRTL={isRTL} revealDelay={Math.min(i * 80, 400)} revealed={gridRevealed} />
               ))}

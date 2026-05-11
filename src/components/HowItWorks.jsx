@@ -166,6 +166,7 @@ export default function HowItWorks() {
         opacity: stepsRevealed ? 1 : 0,
         transform: stepsRevealed ? 'translateY(0)' : 'translateY(24px)',
         transition: 'opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s',
+        direction: isRTL ? 'rtl' : 'ltr',
       }}
     >
       <h3 style={{

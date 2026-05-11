@@ -180,7 +180,7 @@ export const content = {
     },
     footer: {
       tagline: 'U.S. and Israel CPA',
-      links: ['Services', 'Team', 'About', 'Blog', 'Contact', 'Privacy Policy'],
+      links: ['Services', 'Team', 'About', 'Blog', 'Contact'],
       contact: {
         email: 'info@galitzercpa.com',
         phoneIL: '972-2-652-5060',
@@ -303,7 +303,7 @@ export const content = {
     },
     footer: {
       tagline: 'רואי חשבון בארה"ב ובישראל',
-      links: ['שירותים', 'הצוות', 'אודות', 'בלוג', 'צור קשר', 'מדיניות פרטיות'],
+      links: ['שירותים', 'הצוות', 'אודות', 'בלוג', 'צור קשר'],
       contact: {
         email: 'info@galitzercpa.com',
         phoneIL: '972-2-652-5060',

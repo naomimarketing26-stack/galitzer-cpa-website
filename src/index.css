@@ -26,6 +26,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 * {
@@ -38,6 +39,7 @@ body {
   font-family: var(--font-sans);
   color: var(--color-dark);
   background: #ffffff;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -91,4 +93,30 @@ html[lang="he"] body {
 @keyframes progressFill {
   from { width: 0%; }
   to   { width: 100%; }
+}
+
+/* ── Trust bar: 2×2 on mobile, 4×1 on wider screens ── */
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px 24px;
+}
+@media (min-width: 600px) {
+  .trust-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+}
+
+/* ── Accessibility widget classes ── */
+html.a11y-contrast {
+  filter: contrast(1.5) brightness(0.95);
+}
+
+html.a11y-underline a {
+  text-decoration: underline !important;
+}
+
+html[style*="--a11y-font-scale"] body {
+  font-size: calc(1rem * var(--a11y-font-scale, 1));
 }
