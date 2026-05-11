@@ -31,17 +31,16 @@ export default function Footer() {
         >
           {/* Brand */}
           <div style={{ textAlign: isRTL ? 'right' : 'left' }}>
-            {/* Logo — inline-flex so text-align positions it correctly */}
-            <div style={{ marginBottom: '12px' }}>
-              <div style={{ direction: 'ltr', display: 'inline-flex', alignItems: 'center', gap: '4px', flexWrap: 'wrap' }}>
+            {/* Logo — direction:ltr wrapper with flex-end(RTL)/flex-start(LTR) guarantees reliable right/left pinning */}
+            <div style={{ marginBottom: '12px', display: 'flex', direction: 'ltr', justifyContent: isRTL ? 'flex-end' : 'flex-start' }}>
+              <div style={{ direction: 'ltr', display: 'flex', alignItems: 'center', gap: '4px', flexWrap: 'wrap' }}>
                 <span style={{ fontSize: '18px', fontWeight: 800, color: 'white', letterSpacing: '-0.01em' }}>S.GALITZER</span>
                 <span style={{ fontSize: '18px', fontWeight: 800, color: '#C4883A', margin: '0 2px' }}>&</span>
                 <span style={{ fontSize: '18px', fontWeight: 800, color: 'white', letterSpacing: '-0.01em' }}>ASSOCIATES</span>
               </div>
             </div>
-            <p style={{ fontSize: '13px', color: '#777777', marginBottom: '16px', lineHeight: 1.6 }}>{t.tagline}</p>
-            {/* flex-start = right in RTL, left in LTR */}
-            <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
+            <p style={{ fontSize: '13px', color: '#777777', marginBottom: '16px', lineHeight: 1.6, textAlign: isRTL ? 'right' : 'left' }}>{t.tagline}</p>
+            <div style={{ display: 'flex', direction: 'ltr', justifyContent: isRTL ? 'flex-end' : 'flex-start' }}>
               <button
                 onClick={toggle}
                 className={`flex items-center gap-2 rounded-full border transition-colors hover:border-[#555] ${isRTL ? 'py-1 pr-1 pl-3' : 'py-1 pl-1 pr-3'}`}
@@ -77,32 +76,32 @@ export default function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
-            <h4 style={{ fontSize: '11px', fontWeight: 700, color: 'white', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '20px' }}>
+          <div style={{ textAlign: isRTL ? 'right' : 'left' }}>
+            <h4 style={{ fontSize: '11px', fontWeight: 700, color: 'white', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '20px', textAlign: isRTL ? 'right' : 'left' }}>
               {isRTL ? 'יצירת קשר' : 'Contact'}
             </h4>
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: '12px', listStyle: 'none' }}>
-              <li>
+            <ul style={{ display: 'flex', flexDirection: 'column', gap: '12px', listStyle: 'none', padding: 0, margin: 0 }}>
+              <li style={{ textAlign: isRTL ? 'right' : 'left' }}>
                 <a href={`mailto:${t.contact.email}`} style={{ fontSize: '14px', color: '#777777', textDecoration: 'none' }}
                   onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#777'}>
                   {t.contact.email}
                 </a>
               </li>
-              <li style={{ display: 'flex', alignItems: 'center', gap: '6px', justifyContent: 'flex-start' }}>
+              <li style={{ display: 'flex', alignItems: 'center', gap: '6px', direction: isRTL ? 'rtl' : 'ltr', justifyContent: 'flex-start' }}>
                 <span style={{ opacity: 0.5 }}>🇮🇱</span>
                 <a href={`tel:${t.contact.phoneIL}`} style={{ fontSize: '14px', color: '#777777', textDecoration: 'none', direction: 'ltr' }}
                   onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#777'}>
                   {t.contact.phoneIL}
                 </a>
               </li>
-              <li style={{ display: 'flex', alignItems: 'center', gap: '6px', justifyContent: 'flex-start' }}>
+              <li style={{ display: 'flex', alignItems: 'center', gap: '6px', direction: isRTL ? 'rtl' : 'ltr', justifyContent: 'flex-start' }}>
                 <span style={{ opacity: 0.5 }}>🇺🇸</span>
                 <a href={`tel:${t.contact.phoneUS}`} style={{ fontSize: '14px', color: '#777777', textDecoration: 'none', direction: 'ltr' }}
                   onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#777'}>
                   {t.contact.phoneUS}
                 </a>
               </li>
-              <li style={{ fontSize: '13px', color: '#555555', display: 'flex', gap: '4px', justifyContent: 'flex-start' }}>
+              <li style={{ fontSize: '13px', color: '#555555', display: 'flex', gap: '4px', direction: isRTL ? 'rtl' : 'ltr', justifyContent: 'flex-start' }}>
                 <span>{isRTL ? 'פקס:' : 'Fax:'}</span>
                 <span style={{ direction: 'ltr' }}>{t.contact.fax}</span>
               </li>
