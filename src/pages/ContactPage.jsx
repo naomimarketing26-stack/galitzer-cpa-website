@@ -151,15 +151,35 @@ export default function ContactPage() {
     return e
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     const errs = validate()
     if (Object.keys(errs).length) { setErrors(errs); return }
     setSubmitting(true)
-    setTimeout(() => {
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/yonatan@galitzercpa.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          name: values.name,
+          email: values.email,
+          phone: values.phone || '',
+          topic: values.topic || '',
+          message: values.message,
+          _subject: `New contact form submission from ${values.name}`,
+          _captcha: 'false',
+        }),
+      })
+      if (res.ok) {
+        setSubmitted(true)
+      } else {
+        setErrors({ submit: lang === 'he' ? 'שגיאה בשליחה — נסה שוב' : 'Sending failed — please try again' })
+      }
+    } catch {
+      setErrors({ submit: lang === 'he' ? 'שגיאה בשליחה — נסה שוב' : 'Sending failed — please try again' })
+    } finally {
       setSubmitting(false)
-      setSubmitted(true)
-    }, 1200)
+    }
   }
 
   const set = (field) => (e) => {
@@ -354,6 +374,11 @@ export default function ContactPage() {
                   >
                     {submitting ? f.submitting : f.submit}
                   </button>
+                  {errors.submit && (
+                    <p style={{ color: '#c0392b', fontSize: '14px', textAlign: 'center', marginTop: '8px' }}>
+                      {errors.submit}
+                    </p>
+                  )}
                 </form>
               )}
             </div>
@@ -388,9 +413,16 @@ export default function ContactPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                   </span>
-                  <div style={{ color: '#555555', lineHeight: 1.6, fontSize: '14px', whiteSpace: 'pre-line' }}>
+                  <a
+                    href="https://maps.google.com/?q=28+Ben+Zion+Street,+Givat+Shaul,+Jerusalem,+Israel"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: '#555555', lineHeight: 1.6, fontSize: '14px', whiteSpace: 'pre-line', textDecoration: 'none', transition: 'color 0.2s' }}
+                    onMouseEnter={e => e.currentTarget.style.color = '#1A3554'}
+                    onMouseLeave={e => e.currentTarget.style.color = '#555555'}
+                  >
                     {t.info.address}
-                  </div>
+                  </a>
                 </div>
                 <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexDirection: 'row' }}>
                   <span style={{ color: '#C4883A', flexShrink: 0 }}>
@@ -474,7 +506,7 @@ export default function ContactPage() {
               }}>
                 <iframe
                   title="S. Galitzer Associates Office"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3392.1!2d35.1763!3d31.7894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x150329d1b5ea!2s28%20Ben%20Zion%20St%2C%20Givat%20Shaul%2C%20Jerusalem!5e0!3m2!1sen!2sil!4v1"
+                  src="https://maps.google.com/maps?q=28+Ben+Zion+Street,+Givat+Shaul,+Jerusalem,+Israel&z=16&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0, display: 'block', minHeight: '240px' }}
@@ -487,7 +519,7 @@ export default function ContactPage() {
 
             {/* Waze button — mobile only */}
             <a
-              href="https://waze.com/ul?ll=31.7894,35.1763&navigate=yes&q=28+Ben+Zion+Street+Jerusalem"
+              href="https://waze.com/ul?q=28+Ben+Zion+Street%2C+Givat+Shaul%2C+Jerusalem%2C+Israel&navigate=yes"
               target="_blank"
               rel="noopener noreferrer"
               style={{

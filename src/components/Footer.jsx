@@ -10,7 +10,7 @@ const container = {
   paddingRight: 'clamp(24px, 5vw, 80px)',
 }
 
-const linkPaths = ['/services', '/team', '/about', '/blog', '/contact', '/privacy']
+const linkPaths = ['/services', '/team', '/about', '/blog', '/contact']
 
 export default function Footer() {
   const { lang, toggle } = useLang()
@@ -31,12 +31,14 @@ export default function Footer() {
         >
           {/* Brand */}
           <div style={{ textAlign: isRTL ? 'right' : 'left' }}>
-            {/* Logo — inline-flex so text-align positions it correctly */}
+            {/* Logo — inline-block so text-align: right pushes it to the right edge in Hebrew */}
             <div style={{ marginBottom: '12px' }}>
-              <div style={{ direction: 'ltr', display: 'inline-flex', alignItems: 'center', gap: '4px', flexWrap: 'wrap' }}>
-                <span style={{ fontSize: '18px', fontWeight: 800, color: 'white', letterSpacing: '-0.01em' }}>S.GALITZER</span>
-                <span style={{ fontSize: '18px', fontWeight: 800, color: '#C4883A', margin: '0 2px' }}>&</span>
-                <span style={{ fontSize: '18px', fontWeight: 800, color: 'white', letterSpacing: '-0.01em' }}>ASSOCIATES</span>
+              <div style={{ direction: 'ltr', display: 'inline-block' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  <span style={{ fontSize: '18px', fontWeight: 800, color: 'white', letterSpacing: '-0.01em' }}>S.GALITZER</span>
+                  <span style={{ fontSize: '18px', fontWeight: 800, color: '#C4883A', margin: '0 2px' }}>&</span>
+                </div>
+                <div style={{ fontSize: '18px', fontWeight: 800, color: 'white', letterSpacing: '-0.01em' }}>ASSOCIATES</div>
               </div>
             </div>
             <p style={{ fontSize: '13px', color: '#777777', marginBottom: '16px', lineHeight: 1.6 }}>{t.tagline}</p>
@@ -114,9 +116,16 @@ export default function Footer() {
             <h4 style={{ fontSize: '11px', fontWeight: 700, color: 'white', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '20px' }}>
               {t.office.label}
             </h4>
-            <p style={{ fontSize: '14px', color: '#777777', lineHeight: 1.7, whiteSpace: 'pre-line', marginBottom: '16px' }}>
+            <a
+              href="https://maps.google.com/?q=28+Ben+Zion+Street,+Givat+Shaul,+Jerusalem,+Israel"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ fontSize: '14px', color: '#777777', lineHeight: 1.7, whiteSpace: 'pre-line', marginBottom: '16px', display: 'block', textDecoration: 'none', transition: 'color 0.2s' }}
+              onMouseEnter={e => e.currentTarget.style.color = '#ffffff'}
+              onMouseLeave={e => e.currentTarget.style.color = '#777777'}
+            >
               {t.office.address}
-            </p>
+            </a>
             <p style={{ fontSize: '11px', color: '#555555', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '4px' }}>{t.office.hoursLabel}</p>
             <p style={{ fontSize: '14px', color: '#777777' }}>{t.office.hours}</p>
           </div>
@@ -125,10 +134,27 @@ export default function Footer() {
         {/* Bottom bar */}
         <div style={{ borderTop: '1px solid #1E3448', paddingTop: '24px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
           <p style={{ fontSize: '12px', color: '#4A5E72', textAlign: 'center', lineHeight: 1.6 }}>{t.copyright}</p>
-          <Link to="/privacy" style={{ fontSize: '12px', color: '#3D5268', textDecoration: 'none' }}
-            onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#3D5268'}>
-            {isRTL ? 'מדיניות פרטיות' : 'Privacy Policy'}
-          </Link>
+          <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+            <Link to="/privacy" style={{ fontSize: '12px', color: '#3D5268', textDecoration: 'none' }}
+              onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#3D5268'}>
+              {isRTL ? 'מדיניות פרטיות' : 'Privacy Policy'}
+            </Link>
+            <span style={{ color: '#2A3F55', fontSize: '12px' }}>|</span>
+            <Link to="/accessibility" style={{ fontSize: '12px', color: '#3D5268', textDecoration: 'none' }}
+              onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#3D5268'}>
+              {isRTL ? 'הצהרת נגישות' : 'Accessibility Statement'}
+            </Link>
+            <span style={{ color: '#2A3F55', fontSize: '12px' }}>|</span>
+            <Link
+              to="/accessibility"
+              aria-label={isRTL ? 'נגישות' : 'Accessibility'}
+              style={{ fontSize: '18px', color: '#3D5268', textDecoration: 'none', lineHeight: 1 }}
+              onMouseEnter={e => e.currentTarget.style.color = '#fff'}
+              onMouseLeave={e => e.currentTarget.style.color = '#3D5268'}
+            >
+              ♿
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

@@ -79,7 +79,7 @@ export default function Hero() {
         backgroundSize: 'cover, 32px 32px, cover, auto',
         backgroundPosition: 'center, center, center, center',
         backgroundRepeat: 'no-repeat, repeat, no-repeat, no-repeat',
-        paddingTop: '200px',
+        paddingTop: 'clamp(100px, 18vw, 200px)',
         paddingBottom: '0',
         overflow: 'visible',
         position: 'relative',
@@ -193,8 +193,8 @@ export default function Hero() {
           >
             {t.cta}
           </Link>
-          <a
-            href="/services"
+          <Link
+            to="/services"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -212,7 +212,7 @@ export default function Hero() {
             onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.35)'; e.currentTarget.style.background = 'transparent'; }}
           >
             {t.ctaSecondary}
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -228,19 +228,17 @@ export default function Hero() {
         }}
       >
         <div
+          className="trust-grid"
           style={{
             maxWidth: '1200px',
             margin: '0 auto',
             paddingLeft: 'clamp(24px, 5vw, 80px)',
             paddingRight: 'clamp(24px, 5vw, 80px)',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            gap: '16px',
           }}
         >
           {content[lang].trust.map((item, i) => (
             <div key={i} style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: '24px', fontWeight: 800, color: '#ffffff', lineHeight: 1.2 }}>
+              <div style={{ fontSize: 'clamp(20px, 5.5vw, 24px)', fontWeight: 800, color: '#ffffff', lineHeight: 1.2 }}>
                 <CountUp value={item.value} active={statsActive} />
               </div>
               <div style={{ fontSize: '13px', color: '#8AA8C5', marginTop: '6px', letterSpacing: '0.01em' }}>

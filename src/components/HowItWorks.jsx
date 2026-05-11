@@ -135,6 +135,7 @@ export default function HowItWorks() {
         opacity: stepsRevealed ? 1 : 0,
         transform: stepsRevealed ? 'translateY(0)' : 'translateY(24px)',
         transition: 'opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s',
+        direction: isRTL ? 'rtl' : 'ltr',
       }}
     >
       <h3 style={{
@@ -208,7 +209,7 @@ export default function HowItWorks() {
           onMouseEnter={e => { e.currentTarget.style.background = '#A96F25'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
           onMouseLeave={e => { e.currentTarget.style.background = '#C4883A'; e.currentTarget.style.transform = 'translateY(0)'; }}
         >
-          {isRTL ? '← קביעת פגישה' : 'Book Now →'}
+          {isRTL ? 'קביעת פגישה' : 'Book a Consultation'}
         </a>
       </div>
     </div>
