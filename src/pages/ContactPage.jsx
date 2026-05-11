@@ -32,7 +32,7 @@ const contactContent = {
       messagePlaceholder: 'Tell us briefly about your situation...',
       submit: 'Send Message',
       submitting: 'Sending...',
-      success: 'Message sent! We\'ll be in touch within one business day.',
+      success: 'Message sent! We\'ll be in touch as soon as possible.',
       errors: {
         nameRequired: 'Full name is required.',
         emailRequired: 'Email address is required.',
@@ -79,7 +79,7 @@ const contactContent = {
       messagePlaceholder: 'ספר לנו בקצרה על המצב שלך...',
       submit: 'שלח הודעה',
       submitting: 'שולח...',
-      success: 'ההודעה נשלחה! נחזור אליך תוך יום עסקים אחד.',
+      success: 'ההודעה נשלחה! נחזור אליך בהקדם האפשרי.',
       errors: {
         nameRequired: 'שם מלא הוא שדה חובה.',
         emailRequired: 'כתובת אימייל היא שדה חובה.',
@@ -151,15 +151,35 @@ export default function ContactPage() {
     return e
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     const errs = validate()
     if (Object.keys(errs).length) { setErrors(errs); return }
     setSubmitting(true)
-    setTimeout(() => {
-      setSubmitting(false)
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_KEY,
+          subject: isRTL ? 'פנייה חדשה מהאתר – גליצר רואי חשבון' : 'New Website Inquiry – Galitzer CPA',
+          to: 'yonatan@galitzercpa.com',
+          name: values.name,
+          email: values.email,
+          phone: values.phone,
+          topic: values.topic,
+          message: values.message,
+          botcheck: '',
+        }),
+      })
+      const data = await res.json()
+      if (!data.success) throw new Error('failed')
       setSubmitted(true)
-    }, 1200)
+    } catch {
+      setErrors(er => ({ ...er, _submit: f.errors?.submitError || (isRTL ? 'אירעה שגיאה. נסו שוב.' : 'Something went wrong. Please try again.') }))
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   const set = (field) => (e) => {
@@ -332,6 +352,11 @@ export default function ContactPage() {
                     />
                   </InputField>
 
+                  {errors._submit && (
+                    <p style={{ fontSize: '13px', color: '#dc2626', textAlign: isRTL ? 'right' : 'left', margin: 0 }}>
+                      {errors._submit}
+                    </p>
+                  )}
                   <button
                     type="submit"
                     disabled={submitting}

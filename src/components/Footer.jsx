@@ -125,10 +125,17 @@ export default function Footer() {
         {/* Bottom bar */}
         <div style={{ borderTop: '1px solid #1E3448', paddingTop: '24px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
           <p style={{ fontSize: '12px', color: '#4A5E72', textAlign: 'center', lineHeight: 1.6 }}>{t.copyright}</p>
-          <Link to="/privacy" style={{ fontSize: '12px', color: '#3D5268', textDecoration: 'none' }}
-            onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#3D5268'}>
-            {isRTL ? 'מדיניות פרטיות' : 'Privacy Policy'}
-          </Link>
+          <div style={{ display: 'flex', gap: '20px', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <Link to="/privacy" style={{ fontSize: '12px', color: '#3D5268', textDecoration: 'none' }}
+              onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#3D5268'}>
+              {isRTL ? 'מדיניות פרטיות' : 'Privacy Policy'}
+            </Link>
+            <span style={{ color: '#2A3F55', fontSize: '12px' }}>·</span>
+            <Link to="/accessibility" style={{ fontSize: '12px', color: '#3D5268', textDecoration: 'none' }}
+              onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#3D5268'}>
+              {isRTL ? 'הצהרת נגישות' : 'Accessibility Statement'}
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
