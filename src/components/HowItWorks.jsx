@@ -19,6 +19,36 @@ export default function HowItWorks() {
   const [stepsRef, stepsRevealed] = useReveal()
 
   const [formValues, setFormValues] = useState({ name: '', email: '', phone: '' })
+  const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(false)
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setLoading(true)
+    setError(false)
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_KEY,
+          subject: isRTL ? 'פנייה חדשה מהאתר – גליצר רואי חשבון' : 'New Website Inquiry – Galitzer CPA',
+          name: formValues.name,
+          email: formValues.email,
+          phone: formValues.phone,
+          botcheck: '',
+        }),
+      })
+      const data = await res.json()
+      if (!data.success) throw new Error('failed')
+      setSubmitted(true)
+    } catch {
+      setError(true)
+    } finally {
+      setLoading(false)
+    }
+  }
 
   const inputStyle = {
     width: '100%',
@@ -158,59 +188,80 @@ export default function HowItWorks() {
           : "Leave your details and we'll get back to you shortly."}
       </p>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-        <div>
-          <label style={labelStyle}>{isRTL ? 'שם' : 'Full Name'}</label>
-          <input
-            type="text"
-            placeholder={isRTL ? 'ישראל ישראלי' : 'John Smith'}
-            value={formValues.name}
-            onChange={e => setFormValues(v => ({ ...v, name: e.target.value }))}
-            style={{ ...inputStyle, direction: isRTL ? 'rtl' : 'ltr', textAlign: isRTL ? 'right' : 'left' }}
-          />
+      {submitted ? (
+        <div style={{ textAlign: isRTL ? 'right' : 'left', padding: '16px 0' }}>
+          <div style={{ fontSize: '40px', marginBottom: '12px', textAlign: 'center' }}>✅</div>
+          <p style={{ fontSize: '16px', fontWeight: 700, color: '#ffffff', textAlign: 'center', lineHeight: 1.6 }}>
+            {isRTL ? 'תודה! נחזור אליכם בהקדם.' : "Thanks! We'll be in touch shortly."}
+          </p>
         </div>
-        <div>
-          <label style={labelStyle}>{isRTL ? 'אימייל' : 'Email Address'}</label>
-          <input
-            type="email"
-            placeholder={isRTL ? 'israel@example.com' : 'john@example.com'}
-            value={formValues.email}
-            onChange={e => setFormValues(v => ({ ...v, email: e.target.value }))}
-            style={{ ...inputStyle, direction: 'ltr', textAlign: isRTL ? 'right' : 'left' }}
-          />
-        </div>
-        <div>
-          <label style={labelStyle}>{isRTL ? 'טלפון' : 'Phone Number'}</label>
-          <input
-            type="tel"
-            placeholder={isRTL ? '050-000-0000' : '+1 (555) 000-0000'}
-            value={formValues.phone}
-            onChange={e => setFormValues(v => ({ ...v, phone: e.target.value }))}
-            style={{ ...inputStyle, direction: 'ltr', textAlign: isRTL ? 'right' : 'left' }}
-          />
-        </div>
-        <a
-          href="/contact"
-          style={{
-            display: 'block',
-            textAlign: 'center',
-            background: '#C4883A',
-            color: '#ffffff',
-            fontWeight: 700,
-            fontSize: '15px',
-            padding: '14px 28px',
-            borderRadius: '100px',
-            textDecoration: 'none',
-            marginTop: '8px',
-            boxShadow: '0 4px 16px rgba(196,136,58,0.35)',
-            transition: 'all 0.2s ease',
-          }}
-          onMouseEnter={e => { e.currentTarget.style.background = '#A96F25'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-          onMouseLeave={e => { e.currentTarget.style.background = '#C4883A'; e.currentTarget.style.transform = 'translateY(0)'; }}
-        >
-          {isRTL ? '← קביעת פגישה' : 'Book Now →'}
-        </a>
-      </div>
+      ) : (
+        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <input type="hidden" name="botcheck" value="" />
+          <div>
+            <label style={labelStyle}>{isRTL ? 'שם' : 'Full Name'}</label>
+            <input
+              required
+              type="text"
+              placeholder={isRTL ? 'ישראל ישראלי' : 'John Smith'}
+              value={formValues.name}
+              onChange={e => setFormValues(v => ({ ...v, name: e.target.value }))}
+              style={{ ...inputStyle, direction: isRTL ? 'rtl' : 'ltr', textAlign: isRTL ? 'right' : 'left' }}
+            />
+          </div>
+          <div>
+            <label style={labelStyle}>{isRTL ? 'אימייל' : 'Email Address'}</label>
+            <input
+              required
+              type="email"
+              placeholder={isRTL ? 'israel@example.com' : 'john@example.com'}
+              value={formValues.email}
+              onChange={e => setFormValues(v => ({ ...v, email: e.target.value }))}
+              style={{ ...inputStyle, direction: 'ltr', textAlign: isRTL ? 'right' : 'left' }}
+            />
+          </div>
+          <div>
+            <label style={labelStyle}>{isRTL ? 'טלפון' : 'Phone Number'}</label>
+            <input
+              type="tel"
+              placeholder={isRTL ? '050-000-0000' : '+1 (555) 000-0000'}
+              value={formValues.phone}
+              onChange={e => setFormValues(v => ({ ...v, phone: e.target.value }))}
+              style={{ ...inputStyle, direction: 'ltr', textAlign: isRTL ? 'right' : 'left' }}
+            />
+          </div>
+          {error && (
+            <p style={{ fontSize: '13px', color: '#FF6B6B', textAlign: isRTL ? 'right' : 'left', margin: 0 }}>
+              {isRTL ? 'אירעה שגיאה. נסו שוב או פנו אלינו ישירות.' : 'Something went wrong. Please try again.'}
+            </p>
+          )}
+          <button
+            type="submit"
+            disabled={loading}
+            style={{
+              display: 'block',
+              width: '100%',
+              textAlign: 'center',
+              background: loading ? '#A96F25' : '#C4883A',
+              color: '#ffffff',
+              fontWeight: 700,
+              fontSize: '15px',
+              padding: '14px 28px',
+              borderRadius: '100px',
+              border: 'none',
+              cursor: loading ? 'not-allowed' : 'pointer',
+              marginTop: '8px',
+              boxShadow: '0 4px 16px rgba(196,136,58,0.35)',
+              transition: 'all 0.2s ease',
+              fontFamily: 'inherit',
+            }}
+            onMouseEnter={e => { if (!loading) { e.currentTarget.style.background = '#A96F25'; e.currentTarget.style.transform = 'translateY(-2px)'; } }}
+            onMouseLeave={e => { if (!loading) { e.currentTarget.style.background = '#C4883A'; e.currentTarget.style.transform = 'translateY(0)'; } }}
+          >
+            {loading ? (isRTL ? 'שולח…' : 'Sending…') : (isRTL ? 'קביעת פגישה' : 'Book Now')}
+          </button>
+        </form>
+      )}
     </div>
   )
 

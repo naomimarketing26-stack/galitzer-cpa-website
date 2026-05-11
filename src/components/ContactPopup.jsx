@@ -7,6 +7,7 @@ export default function ContactPopup({ onClose }) {
   const [values, setValues] = useState({ name: '', email: '', phone: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(false)
 
   useEffect(() => {
     const onKey = (e) => { if (e.key === 'Escape') onClose() }
@@ -21,8 +22,29 @@ export default function ContactPopup({ onClose }) {
   const handle = async (e) => {
     e.preventDefault()
     setLoading(true)
-    // Simulate success (replace with Web3Forms fetch when key is ready)
-    setTimeout(() => { setSubmitted(true); setLoading(false) }, 900)
+    setError(false)
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_KEY,
+          subject: isRTL ? 'פנייה חדשה מהאתר – גליצר רואי חשבון' : 'New Website Inquiry – Galitzer CPA',
+          name: values.name,
+          email: values.email,
+          phone: values.phone,
+          message: values.message,
+          botcheck: '',
+        }),
+      })
+      const data = await res.json()
+      if (!data.success) throw new Error('failed')
+      setSubmitted(true)
+    } catch {
+      setError(true)
+    } finally {
+      setLoading(false)
+    }
   }
 
   const inputStyle = {
@@ -193,6 +215,11 @@ export default function ContactPopup({ onClose }) {
                   onBlur={e => e.target.style.borderColor = '#E8EDF3'}
                 />
               </div>
+              {error && (
+                <p style={{ fontSize: '13px', color: '#E53E3E', textAlign: isRTL ? 'right' : 'left', margin: 0 }}>
+                  {isRTL ? 'אירעה שגיאה. נסו שוב או פנו אלינו ישירות.' : 'Something went wrong. Please try again.'}
+                </p>
+              )}
               <button
                 type="submit"
                 disabled={loading}
