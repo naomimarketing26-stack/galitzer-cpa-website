@@ -193,8 +193,8 @@ export default function Hero() {
           >
             {t.cta}
           </Link>
-          <a
-            href="/services"
+          <Link
+            to="/services"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -212,7 +212,7 @@ export default function Hero() {
             onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.35)'; e.currentTarget.style.background = 'transparent'; }}
           >
             {t.ctaSecondary}
-          </a>
+          </Link>
         </div>
       </div>
 

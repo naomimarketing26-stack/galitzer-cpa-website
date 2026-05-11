@@ -34,6 +34,7 @@ export default function HowItWorks() {
         body: JSON.stringify({
           access_key: import.meta.env.VITE_WEB3FORMS_KEY,
           subject: isRTL ? 'פנייה חדשה מהאתר – גליצר רואי חשבון' : 'New Website Inquiry – Galitzer CPA',
+          to: 'yonatan@galitzercpa.com',
           name: formValues.name,
           email: formValues.email,
           phone: formValues.phone,

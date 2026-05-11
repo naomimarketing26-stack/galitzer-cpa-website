@@ -9,6 +9,7 @@ import TeamPage from './pages/TeamPage'
 import ContactPage from './pages/ContactPage'
 import BlogPage from './pages/BlogPage'
 import NotFoundPage from './pages/NotFoundPage'
+import AccessibilityPage from './pages/AccessibilityPage'
 import './index.css'
 
 export default function App() {
@@ -24,6 +25,7 @@ export default function App() {
             <Route path="/team" element={<TeamPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/accessibility" element={<AccessibilityPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
           <Footer />

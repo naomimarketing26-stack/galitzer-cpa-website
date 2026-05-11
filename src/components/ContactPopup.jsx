@@ -30,6 +30,7 @@ export default function ContactPopup({ onClose }) {
         body: JSON.stringify({
           access_key: import.meta.env.VITE_WEB3FORMS_KEY,
           subject: isRTL ? 'פנייה חדשה מהאתר – גליצר רואי חשבון' : 'New Website Inquiry – Galitzer CPA',
+          to: 'yonatan@galitzercpa.com',
           name: values.name,
           email: values.email,
           phone: values.phone,
@@ -76,7 +77,7 @@ export default function ContactPopup({ onClose }) {
   const t = {
     en: {
       title: "Let's Talk",
-      sub: "Fill in your details and we'll get back to you within one business day.",
+      sub: "Fill in your details and we'll get back to you as soon as possible.",
       name: 'Full Name', namePh: 'John Smith',
       email: 'Email Address', emailPh: 'john@example.com',
       phone: 'Phone Number', phonePh: '+1 (555) 000-0000',
@@ -84,12 +85,12 @@ export default function ContactPopup({ onClose }) {
       submit: 'Send Message',
       sending: 'Sending…',
       doneTitle: "We'll be in touch!",
-      doneMsg: "Thanks for reaching out. We'll get back to you within one business day.",
+      doneMsg: "Thanks for reaching out. We'll get back to you as soon as possible.",
       close: 'Close',
     },
     he: {
       title: 'בואו נדבר',
-      sub: 'מלאו את הפרטים ונחזור אליכם תוך יום עסקים אחד.',
+      sub: 'מלאו את הפרטים ונחזור אליכם בהקדם האפשרי.',
       name: 'שם מלא', namePh: 'ישראל ישראלי',
       email: 'כתובת אימייל', emailPh: 'israel@example.com',
       phone: 'מספר טלפון', phonePh: '050-000-0000',
@@ -97,7 +98,7 @@ export default function ContactPopup({ onClose }) {
       submit: 'שלח הודעה',
       sending: 'שולח…',
       doneTitle: 'קיבלנו!',
-      doneMsg: 'תודה שפנית אלינו. נחזור אליך תוך יום עסקים אחד.',
+      doneMsg: 'תודה שפנית אלינו. נחזור אליך בהקדם האפשרי.',
       close: 'סגור',
     },
   }[lang]
