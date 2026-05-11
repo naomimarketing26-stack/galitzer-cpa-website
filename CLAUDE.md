@@ -40,6 +40,7 @@ Tailwind CSS 4 via the `@tailwindcss/vite` plugin (no `tailwind.config.js` file)
 - `--color-accent`: `#C4883A` (gold)
 - `--color-accent-dark`: `#A96F25`
 - Fonts: Plus Jakarta Sans (EN), Rubik (HE) loaded from Google Fonts
+- when the website has or is in hebrew you must make sure the icons and wording is always from right to left to fit the hebrew language
 
 **Navigation**
 The navbar (`src/components/Navbar.jsx`) uses a white background on all pages with navy (`#1A3554`) text and gold (`#C4883A`) accents. A gold scroll-progress bar appears at the bottom of the header.
