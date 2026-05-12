@@ -171,35 +171,11 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Mid CTA */}
-      <section style={{ backgroundColor: '#ffffff', borderTop: '1px solid #eef1f4', borderBottom: '1px solid #eef1f4', paddingTop: '80px', paddingBottom: '80px' }}>
-        <div
-          ref={ctaRef}
-          style={{
-            ...narrowContainer,
-            textAlign: 'center',
-            opacity: ctaRevealed ? 1 : 0,
-            transform: ctaRevealed ? 'translateY(0)' : 'translateY(20px)',
-            transition: 'opacity 0.6s ease, transform 0.6s ease',
-          }}
-        >
-          <p style={{ fontSize: isRTL ? '22px' : '18px', fontWeight: 700, color: '#1A3554', marginBottom: '24px' }}>
-            {isRTL ? 'לא בטוחים איזה שירות מתאים לכם? נשמח לעזור.' : "Not sure which service fits your situation? We're happy to help."}
-          </p>
-          <a
-            href="/contact"
-            style={{ display: 'inline-flex', alignItems: 'center', background: '#C4883A', color: '#ffffff', fontWeight: 700, fontSize: '15px', padding: '14px 40px', borderRadius: '10px', textDecoration: 'none', boxShadow: '0 4px 16px rgba(196,136,58,0.3)', transition: 'all 0.2s ease' }}
-            onMouseEnter={e => { e.currentTarget.style.background = '#A96F25'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-            onMouseLeave={e => { e.currentTarget.style.background = '#C4883A'; e.currentTarget.style.transform = 'translateY(0)'; }}
-          >
-            {t.cta}
-          </a>
-        </div>
-      </section>
-
       <FinalCTA
-        headingOverride={isRTL ? 'דברו איתנו — ועשו סדר במיסים שלכם' : undefined}
-        ctaOverride={isRTL ? 'קבעו שיחה' : undefined}
+        headingOverride={isRTL
+          ? 'לא בטוחים איזה שירות מתאים לכם? נשמח לעזור.'
+          : "Not sure which service fits your situation? We're happy to help."}
+        ctaOverride={isRTL ? 'לקביעת פגישת ייעוץ' : 'Book a Consultation'}
       />
     </main>
   )

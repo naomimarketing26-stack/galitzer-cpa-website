@@ -3,6 +3,7 @@ import { useLang } from '../context/LanguageContext'
 import { officePhone } from '../data/team'
 import { useReveal } from '../hooks/useReveal'
 import FinalCTA from '../components/FinalCTA'
+import { OFFICE } from '../data/officeLocation'
 
 const contactContent = {
   en: {
@@ -414,7 +415,7 @@ export default function ContactPage() {
                     </svg>
                   </span>
                   <a
-                    href="https://maps.google.com/?q=28+Ben+Zion+Street,+Givat+Shaul,+Jerusalem,+Israel"
+                    href={OFFICE.googleMapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ color: '#555555', lineHeight: 1.6, fontSize: '14px', whiteSpace: 'pre-line', textDecoration: 'none', transition: 'color 0.2s' }}
@@ -506,7 +507,7 @@ export default function ContactPage() {
               }}>
                 <iframe
                   title="S. Galitzer Associates Office"
-                  src="https://maps.google.com/maps?q=28+Ben+Zion+Street,+Givat+Shaul,+Jerusalem,+Israel&z=16&output=embed"
+                  src={OFFICE.googleMapsEmbedUrl}
                   width="100%"
                   height="100%"
                   style={{ border: 0, display: 'block', minHeight: '240px' }}
@@ -519,7 +520,7 @@ export default function ContactPage() {
 
             {/* Waze button — mobile only */}
             <a
-              href="https://waze.com/ul?q=28+Ben+Zion+Street%2C+Givat+Shaul%2C+Jerusalem%2C+Israel&navigate=yes"
+              href={OFFICE.wazeUrl}
               target="_blank"
               rel="noopener noreferrer"
               style={{

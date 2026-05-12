@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { CircleFlag } from 'react-circle-flags'
 import { useLang } from '../context/LanguageContext'
 import { content } from '../data/content'
+import { OFFICE } from '../data/officeLocation'
 
 const container = {
   maxWidth: '1200px',
@@ -117,7 +118,7 @@ export default function Footer() {
               {t.office.label}
             </h4>
             <a
-              href="https://maps.google.com/?q=28+Ben+Zion+Street,+Givat+Shaul,+Jerusalem,+Israel"
+              href={OFFICE.googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
               style={{ fontSize: '14px', color: '#777777', lineHeight: 1.7, whiteSpace: 'pre-line', marginBottom: '16px', display: 'block', textDecoration: 'none', transition: 'color 0.2s' }}

@@ -15,7 +15,7 @@ const preview = {
     eyebrow: 'Meet the Team',
     heading: 'Expert CPAs. Personal Service.',
     subheading: 'Our bilingual team of licensed U.S. and Israeli CPAs is dedicated to your financial success.',
-    cta: 'Meet the Full Team →',
+    cta: 'Meet the Full Team',
   },
   he: {
     eyebrow: 'הצוות שלנו',
