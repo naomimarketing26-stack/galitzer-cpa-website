@@ -173,9 +173,9 @@ export const content = {
         ],
       },
       resources: [
-        { title: 'Year-End Planning Considerations', desc: 'Important points to consider before and after year-end planning', url: 'https://galitzercpa.com/img/What%20to%20Do%20Before%20Year-End%202014.pdf' },
+        { title: 'Year-End Planning Considerations', desc: 'Important points to consider before and after year-end planning', url: 'https://galitzercpa.com/img/What%20to%20Do%20Before%20Year-End%20Planning.pdf' },
         { title: 'What to Bring to Us', desc: 'Checklist to help you prepare financial statements and tax returns', url: 'https://galitzercpa.com/img/WHAT%20TO%20BRING%20US%202014.pdf' },
-        { title: 'Deciding When to Start Receiving SSA Retirement Benefits', desc: 'Important considerations before requesting U.S. Social Security retirement benefits', url: 'https://galitzercpa.com/img/Deciding%20When%20to%20Start%20Receiving%20SSA%20Retirement%20Benefits.pdf' },
+        { title: 'Deciding When to Start Receiving SSA Retirement Benefits', desc: 'Important considerations before requesting U.S. Social Security retirement benefits', url: 'https://galitzercpa.com/img/WHEN%20TO%20COLLECT%20SSA%202014.pdf' },
       ],
     },
     footer: {
@@ -185,6 +185,8 @@ export const content = {
         email: 'info@galitzercpa.com',
         phoneIL: '972-2-652-5060',
         phoneUS: '(954) 703-6027',
+        whatsAppIL: '972541234567',
+        whatsAppUS: '19547036027',
         fax: '972-2-651-1488',
       },
       office: {
@@ -229,8 +231,8 @@ export const content = {
         { icon: '🏢', title: 'עסקים הפועלים בין ישראל לארה"ב', desc: 'תמיכה מסודרת בנושאים פיננסיים ומיסויים מורכבים' },
         { icon: '🎯', title: 'אנשים המתקרבים לגיל פרישה', desc: 'תכנון נכון של פנסיה, משיכות והשלכות מס חוצות גבולות' },
         { icon: '✈️', title: 'עולים חדשים או מי שמתכננים עלייה', desc: 'מעבר פיננסי חלק והסדרה נכונה בשתי מערכות המס' },
-        { icon: '📦', title: 'אנשים המעבירים נכסים בין ארה"ב לישראל', desc: 'תכנון אסטרטגי להעברת השקעות, חסכונות ונכסים פיננסיים' },
-        { icon: '🔄', title: 'מי שאיחר בדיווחים או צריך להסדיר את המצב', desc: 'ליווי מלא להסדרה נכונה וחזרה לעמידה בדרישות המס' },
+        { icon: '📦', title: 'אנשים המעבירים נכסים בין ארה"ב לישראל', desc: 'תכנון אסטרטגי להעברת השקעות, חסכונות ונכסים' },
+        { icon: '🔄', title: 'מי שאיחר בדיווחים או צריך להסדיר את המצב', desc: 'ליווי מלא להסדרה נכונה וחזרה לעמידה בדרישות' },
       ],
     },
     services: {
@@ -273,7 +275,7 @@ export const content = {
       items: [
         { quote: 'המשרד של גליצר טיפל במצב המס שלנו בשתי המדינות באופן מושלם. סוף סוף אנחנו רגועים.', name: 'דוד ר.', location: 'תל אביב, ישראל', stars: 5 },
         { quote: 'אחרי שנים של מאבק עם מס אמריקאי, העבודה עם הצוות הזה היא הקלה אמיתית.', name: 'שרה מ.', location: 'ירושלים, ישראל', stars: 5 },
-        { quote: 'הם הקימו את החברה הישראלית שלנו וטיפלו בכל הדיווח האמריקאי. מקצועיים ויסודיים.', name: 'אהרן ק.', location: 'ניו יורק, ארה"ב', stars: 5 },
+        { quote: 'הם הקימו את החברה הישראלית שלנו וטיפלו בכל הדיווח האמריקאי. מקצועיים ויסודיים.', name: 'אהרן ק.', location: 'ניו יורק, ארה״ב', stars: 5 },
       ],
     },
     finalCta: {
@@ -296,9 +298,9 @@ export const content = {
         ],
       },
       resources: [
-        { title: 'שיקולים לתכנון סוף השנה', desc: 'נקודות חשובות להתחשב בהן לפני ואחרי תכנון סוף השנה', url: 'https://galitzercpa.com/img/What%20to%20Do%20Before%20Year-End%202014.pdf' },
+        { title: 'שיקולים לתכנון סוף השנה', desc: 'נקודות חשובות להתחשב בהן לפני ואחרי תכנון סוף השנה', url: 'https://galitzercpa.com/img/What%20to%20Do%20Before%20Year-End%20Planning.pdf' },
         { title: 'מה לשלוח אלינו', desc: 'רשימת ביקורת שתעזור לכם להכין דוחות כספיים והגשות מיסים', url: 'https://galitzercpa.com/img/WHAT%20TO%20BRING%20US%202014.pdf' },
-        { title: 'החלטה על מתי להתחיל לקבל הטבות פרישה של SSA', desc: 'שיקולים חשובים לפני בקשה להטבות פרישה של הביטוח הלאומי האמריקאי', url: 'https://galitzercpa.com/img/Deciding%20When%20to%20Start%20Receiving%20SSA%20Retirement%20Benefits.pdf' },
+        { title: 'החלטה על מתי להתחיל לקבל הטבות פרישה של SSA', desc: 'שיקולים חשובים לפני בקשה להטבות פרישה של הביטוח הלאומי האמריקאי', url: 'https://galitzercpa.com/img/WHEN%20TO%20COLLECT%20SSA%202014.pdf' },
       ],
     },
     footer: {
@@ -308,6 +310,8 @@ export const content = {
         email: 'info@galitzercpa.com',
         phoneIL: '972-2-652-5060',
         phoneUS: '(954) 703-6027',
+        whatsAppIL: '972541234567',
+        whatsAppUS: '19547036027',
         fax: '972-2-651-1488',
       },
       office: {
