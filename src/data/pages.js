@@ -19,7 +19,7 @@ export const pages = {
         { icon: '🌐', title: 'Cross-Border Focus', desc: 'Specialists at the intersection of two financial systems.' },
         { icon: '✅', title: 'Full Compliance', desc: 'We keep you compliant, informed, and always prepared.' },
       ],
-      cta: 'Book a Free Consultation',
+      cta: 'Book a Consultation',
     },
 
     services: {
