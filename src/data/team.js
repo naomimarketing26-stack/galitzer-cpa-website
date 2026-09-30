@@ -188,7 +188,7 @@ export const teamContent = {
     extLabel: 'Ext.',
     notSure: 'Not sure who to contact?',
     notSureSub: "Reach out and we'll direct you to the right person.",
-    cta: 'Book a Free Consultation',
+    cta: 'Book a Consultation',
     groupLabels: {
       'Partners & CPAs': 'Partners & CPAs',
       'Tax Advisors': 'Tax Advisors',
