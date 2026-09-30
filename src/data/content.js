@@ -27,7 +27,7 @@ export const content = {
       cta: 'Get Started',
       items: [
         { icon: '🇺🇸', title: 'U.S. Citizens Living in Israel', desc: 'Stay compliant with both U.S. and Israeli requirements' },
-        { icon: '💰', title: 'Individuals with Income Across Both Countries', desc: 'Understand where and how to properly report your income' },
+        { icon: '💰', title: 'Individuals with Worldwide Assets', desc: 'Understand where and how to properly report your income' },
         { icon: '💼', title: 'Freelancers or Self-Employed Workers', desc: 'Clear guidance for cross-border taxation and reporting' },
         { icon: '🏢', title: 'Businesses Operating Between Israel and the U.S.', desc: 'Structured support for complex financial and tax needs' },
         { icon: '🎯', title: 'Individuals Approaching Retirement', desc: 'Plan ahead for pensions, withdrawals, and cross-border tax implications' },
@@ -224,7 +224,7 @@ export const content = {
       cta: 'מתחילים כאן',
       items: [
         { icon: '🇺🇸', title: 'אזרחים אמריקאים המתגוררים בישראל', desc: 'עמידה בדרישות המס בארה״ב ובישראל' },
-        { icon: '💰', title: 'אנשים עם הכנסות גם בישראל וגם בארה"ב', desc: 'הבנה נכונה של איפה וכיצד לדווח על ההכנסות שלך' },
+        { icon: '💰', title: 'אנשים עם נכסים ברחבי העולם', desc: 'הבנה נכונה של איפה וכיצד לדווח על ההכנסות שלך' },
         { icon: '💼', title: 'פרילנסרים ועצמאים', desc: 'ליווי ברור ומדויק בהתנהלות מס בין-מדינתית' },
         { icon: '🏢', title: 'עסקים הפועלים בין ישראל לארה"ב', desc: 'תמיכה מסודרת בנושאים פיננסיים ומיסויים מורכבים' },
         { icon: '🎯', title: 'אנשים המתקרבים לגיל פרישה', desc: 'תכנון נכון של פנסיה, משיכות והשלכות מס חוצות גבולות' },
