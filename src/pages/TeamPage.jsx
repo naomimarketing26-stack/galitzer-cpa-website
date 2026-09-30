@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useLang } from '../context/LanguageContext'
-import { staff, groups, teamContent, officePhone } from '../data/team'
+import { staff, teamContent, officePhone } from '../data/team'
 import { useReveal } from '../hooks/useReveal'
 
 const container = {
@@ -84,9 +84,7 @@ function BioModal({ member, lang, isRTL, onClose }) {
           ))}
         </div>
 
-        {/* CTA footer */}
         <div style={{ borderTop: '1px solid #eef1f4', paddingTop: '24px', marginTop: '8px' }}>
-          {/* Desktop: phone + book link */}
           <div className="hidden sm:flex" style={{ alignItems: 'center', justifyContent: 'space-between', gap: '16px', flexDirection: 'row' }}>
             <div style={{ textAlign: isRTL ? 'right' : 'left' }}>
               <p style={{ fontSize: '13px', fontWeight: 700, color: '#1A3554', marginBottom: '4px' }}>
@@ -119,7 +117,6 @@ function BioModal({ member, lang, isRTL, onClose }) {
             </a>
           </div>
 
-          {/* Mobile: call button only */}
           <a
             href="tel:+97226525060"
             className="flex sm:hidden"
@@ -140,11 +137,11 @@ function BioModal({ member, lang, isRTL, onClose }) {
   )
 }
 
-function StaffCard({ member, t, isRTL, onViewBio, isPartner }) {
+function StaffCard({ member, t, isRTL, onViewBio }) {
   const displayName = isRTL ? member.nameHe : member.name
   const displayPosition = isRTL ? member.positionHe : member.position
   const initials = displayName.split(' ').map(n => n[0]).slice(0, 2).join('')
-  const hasBio = !!(member.bioEn)
+  const hasBio = !!member.bioEn
 
   return (
     <div
@@ -152,7 +149,6 @@ function StaffCard({ member, t, isRTL, onViewBio, isPartner }) {
       style={{
         background: '#ffffff',
         border: '1px solid rgba(0,0,0,0.07)',
-        borderTop: hasBio ? '3px solid #D4AF37' : '1px solid rgba(0,0,0,0.07)',
         borderRadius: '16px',
         padding: '24px',
         boxShadow: '0 1px 6px rgba(0,0,0,0.05)',
@@ -166,7 +162,7 @@ function StaffCard({ member, t, isRTL, onViewBio, isPartner }) {
       onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 1px 6px rgba(0,0,0,0.05)'; }}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexDirection: 'row' }}>
-        <div style={{ width: '48px', height: '48px', borderRadius: '50%', backgroundImage: 'linear-gradient(135deg, #0D1E2F 0%, #1A3554 100%)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '14px', fontWeight: 700 }}>
+        <div style={{ width: '48px', height: '48px', borderRadius: '50%', backgroundImage: 'linear-gradient(135deg, #0D1E2F 0%, #1A3554 100%)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '14px', fontWeight: 700, flexShrink: 0 }}>
           {initials}
         </div>
         <div style={{ textAlign: isRTL ? 'right' : 'left' }}>
@@ -220,19 +216,20 @@ function StaffCard({ member, t, isRTL, onViewBio, isPartner }) {
   )
 }
 
-function GroupSection({ group, members, t, isRTL, onViewBio }) {
+function GroupSection({ group, members, groupLabels, isRTL, onViewBio }) {
   const [gridRef, gridRevealed] = useReveal()
-  const isPartner = group === 'Partners & CPAs'
+  const label = groupLabels[group] || group
+
   return (
     <div>
       <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '32px', flexDirection: 'row' }}>
-        <h2 style={{ fontSize: '22px', fontWeight: 700, color: '#1A3554', whiteSpace: 'nowrap' }}>{t.groupLabels[group]}</h2>
+        <h2 style={{ fontSize: '22px', fontWeight: 700, color: '#1A3554', whiteSpace: 'nowrap' }}>{label}</h2>
         <div style={{ flex: 1, height: '1px', background: '#eef1f4' }} />
       </div>
-      <div ref={gridRef} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(230px, 1fr))', gap: '16px' }}>
+      <div ref={gridRef} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(230px, 1fr))', gap: '16px', gridAutoRows: '1fr' }}>
         {members.map((member, i) => (
           <div key={i} style={{ opacity: gridRevealed ? 1 : 0, transform: gridRevealed ? 'translateY(0)' : 'translateY(20px)', transition: `opacity 0.6s ease ${i * 60}ms, transform 0.6s ease ${i * 60}ms` }}>
-            <StaffCard member={member} t={t} isRTL={isRTL} onViewBio={onViewBio} isPartner={isPartner} />
+            <StaffCard member={member} t={groupLabels.t || { extLabel: 'Ext.' }} isRTL={isRTL} onViewBio={onViewBio} />
           </div>
         ))}
       </div>
@@ -247,9 +244,17 @@ export default function TeamPage() {
   const [ctaRef, ctaRevealed] = useReveal()
   const [activeBioMember, setActiveBioMember] = useState(null)
 
+  const partnerInternational = staff.filter(s => s.group === 'Partners & CPAs' && /U\.S\.|CAN\.|U\.S\. & Isr\.|\(U\.S\.\)|\(CAN\.\)/.test(s.position))
+  const partnerIsraeli = staff.filter(s => s.group === 'Partners & CPAs' && !/U\.S\.|CAN\.|\(U\.S\.\)|\(CAN\.\)/.test(s.position))
+
+  const groupLabels = {
+    ...t.groupLabels,
+    'Partners & International CPAs': isRTL ? 'שותפים ורואי חשבון בינלאומיים' : 'Partners & International CPAs',
+    'Israeli CPAs': isRTL ? 'רואי חשבון ישראליים' : 'Israeli CPAs',
+  }
+
   return (
     <main>
-      {/* Hero */}
       <section style={{ backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(135deg, #0D1E2F 0%, #1A3554 100%)', backgroundSize: '32px 32px, cover', minHeight: '280px', paddingTop: '64px', paddingBottom: '64px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto', paddingLeft: 'clamp(24px, 5vw, 80px)', paddingRight: 'clamp(24px, 5vw, 80px)', textAlign: 'center' }}>
           <span className="hero-animate hero-delay-1 inline-block" style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#C4883A', background: 'rgba(196,136,58,0.1)', padding: '8px 16px', borderRadius: '8px' }}>
@@ -262,7 +267,6 @@ export default function TeamPage() {
         </div>
       </section>
 
-      {/* Office contact bar */}
       <section style={{ background: '#1a1a1a', paddingTop: '16px', paddingBottom: '16px' }}>
         <div style={{ ...container, display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '20px', flexDirection: 'row' }}>
           <span style={{ fontSize: '11px', fontWeight: 700, color: '#555555', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{t.officeLabel}:</span>
@@ -282,18 +286,30 @@ export default function TeamPage() {
         </div>
       </section>
 
-      {/* Staff by group */}
       <section style={{ backgroundColor: '#f4f7f9', paddingTop: '96px', paddingBottom: '96px' }}>
         <div style={{ ...container, display: 'flex', flexDirection: 'column', gap: '64px' }}>
-          {groups.map(group => {
-            const members = staff.filter(s => s.group === group)
-            if (!members.length) return null
-            return <GroupSection key={group} group={group} members={members} t={t} isRTL={isRTL} onViewBio={setActiveBioMember} />
-          })}
+          {partnerInternational.length > 0 && (
+            <GroupSection group="Partners & International CPAs" members={partnerInternational} groupLabels={groupLabels} isRTL={isRTL} onViewBio={setActiveBioMember} />
+          )}
+
+          {partnerIsraeli.length > 0 && (
+            <GroupSection group="Israeli CPAs" members={partnerIsraeli} groupLabels={groupLabels} isRTL={isRTL} onViewBio={setActiveBioMember} />
+          )}
+
+          {staff.filter(s => s.group === 'Tax Advisors').length > 0 && (
+            <GroupSection group="Tax Advisors" members={staff.filter(s => s.group === 'Tax Advisors')} groupLabels={groupLabels} isRTL={isRTL} onViewBio={setActiveBioMember} />
+          )}
+
+          {staff.filter(s => s.group === 'Bookkeeping').length > 0 && (
+            <GroupSection group="Bookkeeping" members={staff.filter(s => s.group === 'Bookkeeping')} groupLabels={groupLabels} isRTL={isRTL} onViewBio={setActiveBioMember} />
+          )}
+
+          {staff.filter(s => s.group === 'Operations').length > 0 && (
+            <GroupSection group="Operations" members={staff.filter(s => s.group === 'Operations')} groupLabels={groupLabels} isRTL={isRTL} onViewBio={setActiveBioMember} />
+          )}
         </div>
       </section>
 
-      {/* Bottom CTA */}
       <section style={{ backgroundColor: '#e8f4f6', paddingTop: '80px', paddingBottom: '80px' }}>
         <div ref={ctaRef} style={{ maxWidth: '600px', margin: '0 auto', paddingLeft: 'clamp(24px, 5vw, 80px)', paddingRight: 'clamp(24px, 5vw, 80px)', textAlign: 'center', opacity: ctaRevealed ? 1 : 0.3, transform: ctaRevealed ? 'translateY(0)' : 'translateY(30px)', transition: 'all 0.8s ease' }}>
           <p style={{ fontSize: '22px', fontWeight: 700, color: '#1A3554', marginBottom: '12px' }}>{t.notSure}</p>
@@ -306,7 +322,6 @@ export default function TeamPage() {
         </div>
       </section>
 
-      {/* Bio Modal */}
       {activeBioMember && (
         <BioModal
           member={activeBioMember}
