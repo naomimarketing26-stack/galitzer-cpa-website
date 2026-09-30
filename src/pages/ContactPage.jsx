@@ -492,6 +492,11 @@ export default function ContactPage() {
                     info@galitzercpa.com
                   </a>
                 </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '8px' }}>
+                  <span>💬 WhatsApp:</span>
+                    <a href="https://wa.me/972586525060" target="_blank" rel="noreferrer">058-652-5060</a>
+                  <span style={{ fontSize: '12px', color: '#666' }}>(Email preferred)</span>
+                </div>
               </ContactCard>
 
               {/* Map Card */}
