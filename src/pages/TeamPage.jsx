@@ -11,13 +11,13 @@ const container = {
 }
 
 function MailIcon() {
-  return <svg style={{ width: '13px', height: '13px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+  return <svg style={{ width: '13px', height: '13px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0[...]
 }
 function PhoneIcon() {
-  return <svg style={{ width: '13px', height: '13px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 8V5z" /></svg>
+  return <svg style={{ width: '13px', height: '13px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.2[...]
 }
 function HashIcon() {
-  return <svg style={{ width: '13px', height: '13px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" /></svg>
+  return <svg style={{ width: '13px', height: '13px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 20l4-16m2 16l4-16[...]
 }
 
 function BioModal({ member, lang, isRTL, onClose }) {
@@ -158,13 +158,15 @@ function StaffCard({ member, t, isRTL, onViewBio, isPartner }) {
         boxShadow: '0 1px 6px rgba(0,0,0,0.05)',
         display: 'flex',
         flexDirection: 'column',
+        justifyContent: 'space-between',
+        height: '100%',
         gap: '16px',
       }}
       onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 4px 14px rgba(0,0,0,0.09)'; }}
       onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 1px 6px rgba(0,0,0,0.05)'; }}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexDirection: 'row' }}>
-        <div style={{ width: '48px', height: '48px', borderRadius: '50%', backgroundImage: 'linear-gradient(135deg, #0D1E2F 0%, #1A3554 100%)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '15px', fontWeight: 700, flexShrink: 0, outline: '4px solid rgba(39,110,125,0.1)' }}>
+        <div style={{ width: '48px', height: '48px', borderRadius: '50%', backgroundImage: 'linear-gradient(135deg, #0D1E2F 0%, #1A3554 100%)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '14px', fontWeight: 700 }}>
           {initials}
         </div>
         <div style={{ textAlign: isRTL ? 'right' : 'left' }}>
@@ -248,10 +250,14 @@ export default function TeamPage() {
   return (
     <main>
       {/* Hero */}
-      <section style={{ backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(135deg, #0D1E2F 0%, #1A3554 100%)', backgroundSize: '32px 32px, cover', paddingTop: '160px', paddingBottom: '80px' }}>
+      <section style={{ backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(135deg, #0D1E2F 0%, #1A3554 100%)', backgroundSize: '32px 32px, cover', minHeight: '280px', paddingTop: '64px', paddingBottom: '64px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto', paddingLeft: 'clamp(24px, 5vw, 80px)', paddingRight: 'clamp(24px, 5vw, 80px)', textAlign: 'center' }}>
-          <span className="hero-animate hero-delay-1 inline-block" style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#C4883A', background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.18)', borderRadius: '100px', padding: '6px 16px', marginBottom: '24px', display: 'inline-block' }}>{t.eyebrow}</span>
-          <h1 className="hero-animate hero-delay-2" style={{ fontSize: 'clamp(32px, 4.5vw, 56px)', fontWeight: 800, color: '#ffffff', lineHeight: 1.15, letterSpacing: '-0.02em', marginBottom: '20px' }}>{t.heading}</h1>
+          <span className="hero-animate hero-delay-1 inline-block" style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#C4883A', background: 'rgba(196,136,58,0.1)', padding: '8px 16px', borderRadius: '8px' }}>
+            {isRTL ? 'אנשי הצוות שלנו' : 'Our Team'}
+          </span>
+          <h1 className="hero-animate hero-delay-2" style={{ fontSize: 'clamp(32px, 4.5vw, 56px)', fontWeight: 800, color: '#ffffff', lineHeight: 1.15, letterSpacing: '-0.02em', marginBottom: '20px' }}>
+            {isRTL ? 'מומחים בשירותם' : 'Experts at Your Service'}
+          </h1>
           <p className="hero-animate hero-delay-3" style={{ fontSize: '17px', color: '#B0C8E0', lineHeight: 1.7, maxWidth: '560px', margin: '0 auto' }}>{t.subheading}</p>
         </div>
       </section>
@@ -260,12 +266,12 @@ export default function TeamPage() {
       <section style={{ background: '#1a1a1a', paddingTop: '16px', paddingBottom: '16px' }}>
         <div style={{ ...container, display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '20px', flexDirection: 'row' }}>
           <span style={{ fontSize: '11px', fontWeight: 700, color: '#555555', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{t.officeLabel}:</span>
-          <a href={`tel:${officePhone.il}`} style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '13px', color: '#cccccc', textDecoration: 'none' }} onMouseEnter={e => e.currentTarget.style.color = '#C4883A'} onMouseLeave={e => e.currentTarget.style.color = '#ccc'}>
+          <a href={`tel:${officePhone.il}`} style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '13px', color: '#cccccc', textDecoration: 'none' }} onMouseEnter={e => e.currentTarget.style.color = '#C4883A'} onMouseLeave={e => e.currentTarget.style.color = '#cccccc'}>
             <span>🇮🇱</span>
             <span style={{ direction: 'ltr' }}>{officePhone.il}</span>
           </a>
           <span style={{ color: '#333', display: 'none' }}>|</span>
-          <a href={`tel:${officePhone.us}`} style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '13px', color: '#cccccc', textDecoration: 'none' }} onMouseEnter={e => e.currentTarget.style.color = '#C4883A'} onMouseLeave={e => e.currentTarget.style.color = '#ccc'}>
+          <a href={`tel:${officePhone.us}`} style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '13px', color: '#cccccc', textDecoration: 'none' }} onMouseEnter={e => e.currentTarget.style.color = '#C4883A'} onMouseLeave={e => e.currentTarget.style.color = '#cccccc'}>
             <span>🇺🇸</span>
             <span style={{ direction: 'ltr' }}>{officePhone.us}</span>
           </a>
@@ -289,10 +295,10 @@ export default function TeamPage() {
 
       {/* Bottom CTA */}
       <section style={{ backgroundColor: '#e8f4f6', paddingTop: '80px', paddingBottom: '80px' }}>
-        <div ref={ctaRef} style={{ maxWidth: '600px', margin: '0 auto', paddingLeft: 'clamp(24px, 5vw, 80px)', paddingRight: 'clamp(24px, 5vw, 80px)', textAlign: 'center', opacity: ctaRevealed ? 1 : 0, transform: ctaRevealed ? 'translateY(0)' : 'translateY(20px)', transition: 'opacity 0.6s ease, transform 0.6s ease' }}>
+        <div ref={ctaRef} style={{ maxWidth: '600px', margin: '0 auto', paddingLeft: 'clamp(24px, 5vw, 80px)', paddingRight: 'clamp(24px, 5vw, 80px)', textAlign: 'center', opacity: ctaRevealed ? 1 : 0.3, transform: ctaRevealed ? 'translateY(0)' : 'translateY(30px)', transition: 'all 0.8s ease' }}>
           <p style={{ fontSize: '22px', fontWeight: 700, color: '#1A3554', marginBottom: '12px' }}>{t.notSure}</p>
           <p style={{ fontSize: '16px', color: '#555555', lineHeight: 1.7, marginBottom: '32px' }}>{t.notSureSub}</p>
-          <a href="/contact" style={{ display: 'inline-flex', alignItems: 'center', background: '#C4883A', color: '#ffffff', fontWeight: 700, fontSize: '15px', padding: '14px 40px', borderRadius: '10px', textDecoration: 'none', boxShadow: '0 4px 16px rgba(196,136,58,0.3)', transition: 'all 0.2s ease' }}
+          <a href="/contact" style={{ display: 'inline-flex', alignItems: 'center', background: '#C4883A', color: '#ffffff', fontWeight: 700, fontSize: '15px', padding: '14px 40px', borderRadius: '10px', textDecoration: 'none', transition: 'all 0.3s ease' }}
             onMouseEnter={e => { e.currentTarget.style.background = '#A96F25'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
             onMouseLeave={e => { e.currentTarget.style.background = '#C4883A'; e.currentTarget.style.transform = 'translateY(0)'; }}>
             {t.cta}
