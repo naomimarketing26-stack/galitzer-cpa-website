@@ -103,12 +103,12 @@ export const content = {
     howItWorks: {
       heading: 'How It Works',
       subheading: 'Getting started is simple.',
-      cta: 'Start with a Free Consultation',
+      cta: 'Start with a Consultation',
       steps: [
         {
           number: '01',
           title: 'Book a Consultation',
-          desc: 'Schedule a free call and tell us about your situation.',
+          desc: 'Schedule a call and tell us about your situation.',
         },
         {
           number: '02',
@@ -260,9 +260,9 @@ export const content = {
     howItWorks: {
       heading: 'איך זה עובד',
       subheading: 'להתחיל זה פשוט.',
-      cta: 'התחילו עם ייעוץ ראשוני חינם',
+      cta: 'התחילו עם ייעוץ ראשוני',
       steps: [
-        { number: '01', title: 'קובעים פגישה', desc: 'קבעו שיחה חינם וספרו לנו על המצב שלכם.' },
+        { number: '01', title: 'קובעים פגישה', desc: 'קבעו שיחה וספרו לנו על המצב שלכם.' },
         { number: '02', title: 'בודקים את המצב', desc: 'נבחן את תושבות המס, מבנה העסק והיעדים הפיננסיים שלכם.' },
         { number: '03', title: 'מקבלים תוכנית', desc: 'נבנה עבורכם אסטרטגיה מותאמת אישית — ישראל, ארה״ב, או שתיהן.' },
         { number: '04', title: 'אנחנו מטפלים בכל', desc: 'הגשות, מועדים, ציות וייעוץ שוטף — אנחנו מסדרים הכל.' },
