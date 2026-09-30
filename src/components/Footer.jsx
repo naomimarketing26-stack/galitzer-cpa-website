@@ -105,6 +105,23 @@ export default function Footer() {
                   {t.contact.phoneUS}
                 </a>
               </li>
+              <li style={{ display: 'flex', alignItems: 'center', gap: '6px', justifyContent: 'flex-start' }}>
+                <span aria-hidden="true" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '16px', color: '#25D366', fontSize: '16px', lineHeight: 1 }}>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+                    <path d="M20.52 3.48A11.82 11.82 0 0 0 12.06 0C5.44 0 .05 5.39.05 12.01c0 2.12.55 4.2 1.59 6.03L0 24l6.12-1.61A12.02 12.02 0 0 0 12.06 24c6.62 0 12.01-5.39 12.01-12.01 0-3.21-1.25-6.23-3.55-8.51ZM12.06 21.9c-1.94 0-3.83-.52-5.48-1.51l-.39-.23-3.64.96 1-3.54-.26-.38A9.82 9.82 0 0 1 2.2 12.01c0-5.43 4.43-9.86 9.86-9.86 2.63 0 5.1 1.03 6.96 2.89a9.79 9.79 0 0 1 2.89 6.97c0 5.43-4.43 9.86-9.86 9.86Zm5.38-7.37c-.29-.15-1.72-.85-1.99-.95-.27-.1-.46-.15-.66.15-.2.29-.77.95-.94 1.15-.17.2-.35.22-.64.08-.29-.15-1.22-.45-2.32-1.44-.86-.77-1.44-1.71-1.6-2-.17-.29-.02-.45.13-.59.13-.13.29-.35.44-.52.15-.17.2-.29.29-.49.1-.2.05-.37-.02-.52-.08-.15-.66-1.6-.9-2.2-.24-.59-.48-.51-.66-.52l-.56-.01c-.2 0-.52.08-.79.38-.27.3-1.03 1.01-1.03 2.46s1.06 2.85 1.2 3.05c.15.2 2.08 3.18 5.04 4.46.7.3 1.25.48 1.68.62.7.22 1.34.19 1.85.12.56-.08 1.72-.7 1.96-1.38.24-.68.24-1.27.17-1.39-.08-.12-.29-.19-.6-.33Z" />
+                  </svg>
+                </span>
+                <a
+                  href={`https://wa.me/${t.contact.whatsAppIL.replace(/\D/g, '')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ fontSize: '14px', color: '#777777', textDecoration: 'none', direction: 'ltr' }}
+                  onMouseEnter={e => e.currentTarget.style.color = '#fff'}
+                  onMouseLeave={e => e.currentTarget.style.color = '#777'}
+                >
+                  {t.contact.whatsAppIL}
+                </a>
+              </li>
               <li style={{ fontSize: '13px', color: '#555555', display: 'flex', gap: '4px', justifyContent: 'flex-start' }}>
                 <span>{isRTL ? 'פקס:' : 'Fax:'}</span>
                 <span style={{ direction: 'ltr' }}>{t.contact.fax}</span>
