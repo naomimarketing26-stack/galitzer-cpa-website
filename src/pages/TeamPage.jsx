@@ -8,6 +8,9 @@ const container = { maxWidth: '1200px', margin: '0 auto', paddingLeft: 'clamp(24
 function MailIcon() { return <svg style={{ width: '13px', height: '13px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> }
 function PhoneIcon() { return <svg style={{ width: '13px', height: '13px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg> }
 function HashIcon() { return <svg style={{ width: '13px', height: '13px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 20l4-16m2 16l4-16M6 9h12M4 15h16" /></svg> }
+function PersonIcon() {
+  return <svg width="20" height="22" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="3" /><path d="M7 12h10a2 2 0 0 1 2 2v4H5v-4a2 2 0 0 1 2-2" /></svg>
+}
 
 function BioModal({ member, lang, isRTL, onClose }) {
   const bio = lang === 'he' ? member.bioHe : member.bioEn
@@ -29,11 +32,10 @@ function BioModal({ member, lang, isRTL, onClose }) {
 function StaffCard({ member, t, isRTL, onViewBio }) {
   const name = isRTL ? member.nameHe : member.name
   const position = isRTL ? member.positionHe : member.position
-  const initials = name.split(' ').map(part => part[0]).slice(0, 2).join('')
   const hasBio = !!member.bioEn
   return <div className="hover:-translate-y-1 transition-all duration-300" style={{ background: '#fff', border: '1px solid rgba(0,0,0,0.07)', borderRadius: 16, padding: 24, boxSizing: 'border-box', minHeight: 128, height: '100%', boxShadow: '0 1px 6px rgba(0,0,0,0.05)', display: 'flex', flexDirection: 'column', gap: 16 }} onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 4px 14px rgba(0,0,0,0.09)' }} onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 1px 6px rgba(0,0,0,0.05)' }}>
     <div style={{ display: 'flex', alignItems: 'center', gap: 14, minHeight: 56 }}>
-      <div style={{ width: 48, height: 48, flexShrink: 0, borderRadius: '50%', background: 'linear-gradient(135deg, #0D1E2F, #1A3554)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14, fontWeight: 700 }}>{initials}</div>
+      <div style={{ width: 48, height: 48, flexShrink: 0, borderRadius: '50%', background: 'linear-gradient(135deg, #0D1E2F, #1A3554)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14, fontWeight: 700 }}><PersonIcon aria-label="Profile" /></div>
       <div style={{ minWidth: 0, textAlign: isRTL ? 'right' : 'left' }}>
         <p style={{ fontSize: 14, fontWeight: 700, color: '#1a1a1a', lineHeight: 1.3, margin: 0 }}>{name}</p>
         <p style={{ fontSize: 12, color: '#C4883A', fontWeight: 600, lineHeight: 1.35, margin: '3px 0 0' }}>{position}</p>

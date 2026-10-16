@@ -27,8 +27,16 @@ const preview = {
 
 const featured = staff.filter(s => s.group === 'Partners & CPAs').slice(0, 4)
 
+function PersonIcon() {
+  return (
+    <svg width="20" height="22" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="5" r="3" />
+      <path d="M7 12h10a2 2 0 0 1 2 2v4H5v-4a2 2 0 0 1 2-2" />
+    </svg>
+  )
+}
+
 function MiniCard({ member, isRTL }) {
-  const initials = (isRTL ? member.nameHe : member.name).split(' ').map(n => n[0]).slice(0, 2).join('')
   const displayName = isRTL ? member.nameHe : member.name
   const displayPosition = isRTL ? member.positionHe : member.position
 
@@ -67,7 +75,7 @@ function MiniCard({ member, isRTL }) {
           outline: '4px solid rgba(26,53,84,0.12)',
         }}
       >
-        {initials}
+        <PersonIcon aria-label="Profile" />
       </div>
       <div style={{ minWidth: 0, textAlign: isRTL ? 'right' : 'left' }}>
         <p style={{ fontSize: '14px', fontWeight: 700, color: '#1a1a1a', lineHeight: 1.3 }}>{displayName}</p>
