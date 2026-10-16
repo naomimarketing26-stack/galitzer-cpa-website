@@ -12,7 +12,7 @@ const content = {
       },
       {
         title: '2. Data Controller',
-        body: 'The entity responsible for the personal data collected through this website is:\n\nS. Galitzer & Associates CPA\n28 Ben Zion Street, Givat Shaul, Jerusalem, Israel\nEmail: info@galitzercpa.com\nPhone: 972-2-652-5060',
+        body: 'The entity responsible for the personal data collected through this website is:\n\nS. Galitzer & Associates CPA\n28 Ben Zion Street, Givat Shaul, Jerusalem, Israel\nEmail: yonatan@galitzercpa.com\nPhone: 972-2-652-5060',
       },
       {
         title: '3. What Information We Collect',
@@ -36,7 +36,7 @@ const content = {
       },
       {
         title: '8. Your Rights',
-        body: 'Under the Protection of Privacy Law, you have the right to:\n• Request access to personal information we hold about you\n• Request correction of inaccurate information\n• Request deletion of your information, subject to legal limitations\n\nTo exercise these rights, please contact us at: info@galitzercpa.com',
+        body: 'Under the Protection of Privacy Law, you have the right to:\n• Request access to personal information we hold about you\n• Request correction of inaccurate information\n• Request deletion of your information, subject to legal limitations\n\nTo exercise these rights, please contact us at: yonatan@galitzercpa.com',
       },
       {
         title: '9. Information Security',
@@ -48,7 +48,7 @@ const content = {
       },
       {
         title: '11. Contact',
-        body: 'For any questions or requests regarding this Privacy Policy:\n\nEmail: info@galitzercpa.com\nPhone: 972-2-652-5060\nAddress: 28 Ben Zion Street, Givat Shaul, Jerusalem, Israel',
+        body: 'For any questions or requests regarding this Privacy Policy:\n\nEmail: yonatan@galitzercpa.com\nPhone: 972-2-652-5060\nAddress: 28 Ben Zion Street, Givat Shaul, Jerusalem, Israel',
       },
     ],
   },
@@ -63,7 +63,7 @@ const content = {
       },
       {
         title: '2. אחראי על המידע',
-        body: 'הגורם האחראי על המידע האישי הנאסף באמצעות אתר זה הוא:\n\nש. גליצר ושות׳ רואי חשבון\nרחוב בן ציון 28, גבעת שאול, ירושלים\nדוא״ל: info@galitzercpa.com\nטלפון: 02-652-5060',
+        body: 'הגורם האחראי על המידע האישי הנאסף באמצעות אתר זה הוא:\n\nש. גליצר ושות׳ רואי חשבון\nרחוב בן ציון 28, גבעת שאול, ירושלים\nדוא״ל: yonatan@galitzercpa.com\nטלפון: 02-652-5060',
       },
       {
         title: '3. איזה מידע נאסף',
@@ -87,7 +87,7 @@ const content = {
       },
       {
         title: '8. זכויותיכם',
-        body: 'לפי חוק הגנת הפרטיות, עומדות לכם הזכויות הבאות:\n• לעיין במידע האישי שאנו מחזיקים עליכם\n• לבקש תיקון מידע שגוי\n• לבקש מחיקת המידע, בכפוף למגבלות החוק\n\nלמימוש זכויות אלה, פנו אלינו בכתובת: info@galitzercpa.com',
+        body: 'לפי חוק הגנת הפרטיות, עומדות לכם הזכויות הבאות:\n• לעיין במידע האישי שאנו מחזיקים עליכם\n• לבקש תיקון מידע שגוי\n• לבקש מחיקת המידע, בכפוף למגבלות החוק\n\nלמימוש זכויות אלה, פנו אלינו בכתובת: yonatan@galitzercpa.com',
       },
       {
         title: '9. אבטחת מידע',
@@ -99,7 +99,7 @@ const content = {
       },
       {
         title: '11. יצירת קשר',
-        body: 'לכל שאלה או בקשה הנוגעת למדיניות פרטיות זו:\n\nדוא״ל: info@galitzercpa.com\nטלפון: 02-652-5060\nכתובת: רחוב בן ציון 28, גבעת שאול, ירושלים',
+        body: 'לכל שאלה או בקשה הנוגעת למדיניות פרטיות זו:\n\nדוא״ל: yonatan@galitzercpa.com\nטלפון: 02-652-5060\nכתובת: רחוב בן ציון 28, גבעת שאול, ירושלים',
       },
     ],
   },

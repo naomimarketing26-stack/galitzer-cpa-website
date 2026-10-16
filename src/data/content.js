@@ -182,7 +182,7 @@ export const content = {
       tagline: 'U.S. and Israel CPA',
       links: ['Services', 'Team', 'About', 'Blog', 'Contact'],
       contact: {
-        email: 'info@galitzercpa.com',
+        email: 'yonatan@galitzercpa.com',
         phoneIL: '972-2-652-5060',
         phoneUS: '(954) 703-6027',
         whatsAppIL: '972541234567',
@@ -307,7 +307,7 @@ export const content = {
       tagline: 'רואי חשבון בארה"ב ובישראל',
       links: ['שירותים', 'הצוות', 'אודות', 'בלוג', 'צור קשר'],
       contact: {
-        email: 'info@galitzercpa.com',
+        email: 'yonatan@galitzercpa.com',
         phoneIL: '972-2-652-5060',
         phoneUS: '(954) 703-6027',
         whatsAppIL: '972541234567',

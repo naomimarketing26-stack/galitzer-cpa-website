@@ -45,7 +45,6 @@ export default function BlogPage() {
   const [activeTab, setActiveTab] = useState(tabs[0])
   useEffect(() => { setActiveTab(tabs[0]) }, [lang])
   const [infoCenterRef, infoCenterRevealed] = useReveal()
-  const [resourcesRef, resourcesRevealed] = useReveal()
 
   const isAllTab = activeTab === tabs[0]
   const isGuidesTab = activeTab === tabs[3]
@@ -174,55 +173,6 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* Downloadable Guides */}
-      <section style={{ backgroundColor: '#f4f7f9', paddingTop: '80px', paddingBottom: '80px' }}>
-        <div ref={resourcesRef} style={{ ...container, opacity: resourcesRevealed ? 1 : 0, transform: resourcesRevealed ? 'translateY(0)' : 'translateY(24px)', transition: 'opacity 0.6s ease, transform 0.6s ease' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '28px', flexDirection: 'row' }}>
-            <h2 style={{ fontSize: '22px', fontWeight: 800, color: '#1A3554', margin: '0' }}>
-              {lang === 'en' ? 'Downloadable Guides' : 'מדריכים להורדה'}
-            </h2>
-            <span style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.08em', backgroundColor: '#C4883A', color: '#ffffff', padding: '3px 10px', borderRadius: '100px' }}>PDF</span>
-          </div>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            {t.resources.map((resource, i) => (
-              <a
-                key={i}
-                href={resource.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  background: '#ffffff',
-                  border: '1px solid #eef1f4',
-                  borderRadius: '14px',
-                  padding: '20px 24px',
-                  textDecoration: 'none',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '16px',
-                  transition: 'all 0.2s ease',
-                  flexDirection: 'row',
-                }}
-                onMouseEnter={e => { e.currentTarget.style.borderColor = '#C4883A'; e.currentTarget.style.boxShadow = '0 4px 16px rgba(196,136,58,0.1)'; }}
-                onMouseLeave={e => { e.currentTarget.style.borderColor = '#eef1f4'; e.currentTarget.style.boxShadow = 'none'; }}
-              >
-                <div style={{ width: '40px', height: '40px', borderRadius: '10px', backgroundColor: '#FFF4E6', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  <svg style={{ width: '20px', height: '20px', color: '#C4883A' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                </div>
-                <div style={{ flex: 1, textAlign: isRTL ? 'right' : 'left' }}>
-                  <h3 style={{ fontSize: '15px', fontWeight: 700, color: '#1A3554', margin: '0 0 4px' }}>{resource.title}</h3>
-                  <p style={{ fontSize: '13px', color: '#777777', margin: '0' }}>{resource.desc}</p>
-                </div>
-                <span style={{ fontSize: '13px', fontWeight: 600, color: '#C4883A', whiteSpace: 'nowrap', flexShrink: 0 }}>
-                  {lang === 'en' ? 'Download' : 'הורד'}
-                </span>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Bottom CTA */}
       <section style={{ backgroundColor: '#0D1E2F', paddingTop: '80px', paddingBottom: '80px' }}>
