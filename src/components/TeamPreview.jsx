@@ -40,6 +40,7 @@ function MiniCard({ member, isRTL }) {
         border: '1.5px solid #E8EDF3',
         borderRadius: '20px',
         padding: '24px',
+        minHeight: '140px',
         display: 'flex',
         alignItems: 'center',
         gap: '16px',
