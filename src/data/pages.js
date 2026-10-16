@@ -41,7 +41,7 @@ export const pages = {
             'U.S. Corporate Tax Returns (C-Corporations & S-Corporations)',
             'Partnership & LLC Tax Returns',
             'Trust Tax Returns',
-            'FBAR & International Information Reporting',
+            'Estate planning and reporting',
             'Ongoing Tax Advisory & Compliance Support',
           ],
         },
@@ -64,7 +64,7 @@ export const pages = {
               items: [
                 'Israeli Corporate Tax Returns',
                 'Financial Statement Preparation',
-                'Business Registration (Osek Patur / Osek Murshe / Companies)',
+                'Business Registration (Osek Patur / Osek Murshe / Osek Zair / non for profit /Companies)',
                 'VAT Registration & Ongoing VAT Filings',
                 'Ongoing Tax Advisory & Compliance',
               ],

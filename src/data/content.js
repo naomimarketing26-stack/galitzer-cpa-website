@@ -7,6 +7,7 @@ export const content = {
       blog: 'Blog',
       contact: 'Contact',
       cta: 'Book a Consultation',
+      logo: 'S.GALITZER & ASSOCIATES',
     },
     hero: {
       eyebrow: 'U.S. & Israel CPA Firm',
@@ -207,6 +208,7 @@ export const content = {
       blog: 'עדכונים',
       contact: 'צור קשר',
       cta: 'קביעת פגישת ייעוץ',
+      logo: 'ש.גליצר ושות׳',
     },
     hero: {
       eyebrow: 'רואי חשבון בארה"ב ובישראל',

@@ -101,16 +101,14 @@ export default function Navbar() {
 
       <div style={navContainer}>
         {/* Logo */}
-        <Link to="/" style={{ order: 3 }} className="flex items-center gap-1 shrink-0">
-          <div style={{ direction: 'ltr', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-            <span className="text-xl font-extrabold tracking-tight leading-none text-[#1A3554]">S.GALITZER</span>
-            <span className="text-xl font-extrabold text-[#C4883A] leading-none mx-0.5">&</span>
-            <span className="text-xl font-extrabold tracking-tight leading-none text-[#1A3554]">ASSOCIATES</span>
+        <Link to="/" className="flex items-center gap-1 shrink-0">
+          <div style={{ direction: isRTL ? 'rtl' : 'ltr', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+            <span className="text-xl font-extrabold tracking-tight leading-none text-[#1A3554]">{t.logo}</span>
           </div>
         </Link>
 
         {/* Desktop Nav */}
-        <nav style={{ order: 2 }} className="hidden lg:flex items-center gap-7">
+        <nav className="hidden lg:flex items-center gap-7">
           {links.map(link => (
             <Link
               key={link.label}
@@ -127,7 +125,7 @@ export default function Navbar() {
         </nav>
 
         {/* Right side */}
-        <div style={{ order: 1 }} className="flex items-center gap-3">
+        <div className="flex items-center gap-3">
           <FlagToggle />
           <Link
             to="/contact"
