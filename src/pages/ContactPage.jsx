@@ -97,7 +97,7 @@ const contactContent = {
       fax: 'פקס',
       email: 'אימייל',
       hours: 'שעות פעילות',
-      hoursValue: 'א׳–ה׳: 9:00–18:00',
+      hoursValue: 'א׳–ה׳: 18:00–9:00',
     },
   },
 }
