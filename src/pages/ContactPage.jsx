@@ -55,15 +55,15 @@ const contactContent = {
   },
   he: {
     eyebrow: 'צרו קשר',
-    heading: 'בואו נדבר',
-    subheading: 'יש לכם שאלות? הצוות שלנו כאן כדי לעזור לכם בניווט בעתידכם הפיננסי.',
+    heading: 'בואו ונדבר',
+    subheading: 'יש לכם שאלות? הצוות שלנו כאן כדי לעזור לכם בתכנון בעתידכם הפיננסי.',
     form: {
       name: 'שם מלא',
       namePlaceholder: 'השם המלא שלך',
       email: 'כתובת אימייל',
       emailPlaceholder: 'you@example.com',
       phone: 'מספר טלפון',
-      phonePlaceholder: '+972 או +1...',
+      phonePlaceholder: '+972...',
       topic: 'נושא',
       topicOptions: [
         { value: '', label: 'בחר נושא...' },

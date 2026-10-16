@@ -163,15 +163,15 @@ export const staff = [
     email: 'shoshana@galitzercpa.com',
   },
   {
-    name: 'Talya Fass',            nameHe: 'טליה פס',
+    name: 'Talya Fass',            nameHe: 'טליה פאס',
     position: 'Admin Assistant',                   positionHe: 'עוזרת אדמינסטרטיבית',
     group: 'Operations',
     extension: '43',
     email: 'office2@galitzercpa.com',
   },
   {
-    name: 'Aliza Weizel',          nameHe: 'אליזה וייזל',
-    position: 'Billing',                           positionHe: 'חיוב וגבייה',
+    name: 'Aliza Weizel',          nameHe: 'עליזה וייזל',
+    position: 'Billing',                           positionHe: 'גבייה',
     group: 'Operations',
     extension: '39',
     email: 'office@galitzercpa.com',
@@ -212,7 +212,7 @@ export const teamContent = {
       'Partners & CPAs': 'שותפים ורואי חשבון',
       'Tax Advisors': 'יועצי מס',
       'Bookkeeping': 'הנהלת חשבונות',
-      'Operations': 'מנהלה ותפעול',
+      'Operations': 'אדמיניסטרציה',
     },
   },
 }

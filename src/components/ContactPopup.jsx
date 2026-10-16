@@ -89,7 +89,7 @@ export default function ContactPopup({ onClose }) {
       close: 'Close',
     },
     he: {
-      title: 'בואו נדבר',
+      title: 'בואו ונדבר',
       sub: 'מלאו את הפרטים ונחזור אליכם בהקדם האפשרי.',
       name: 'שם מלא', namePh: 'ישראל ישראלי',
       email: 'כתובת אימייל', emailPh: 'israel@example.com',
