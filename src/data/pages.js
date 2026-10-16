@@ -8,9 +8,9 @@ export const pages = {
       intro:
         'At S. Galitzer and Associates, we provide comprehensive accounting, tax, and advisory services for individuals and businesses, with specialized expertise in both Israeli and U.S. taxation.',
       body: [
-        'With decades of experience, our firm assists clients with accounting, reporting, strategic tax planning, compliance, and cross-border financial matters. We work with individuals, business owners, retirees, companies, and non-profit organizations requiring cross-border financial guidance.',
+        'With decades of experience, our firm assists clients with accounting, reporting, strategic tax planning, compliance, and cross-border financial matters. We work with individuals, business owners, retirees, corporations, and non-profit organizations.',
         'Our strength lies in combining comprehensive professional knowledge with a personalized approach—helping clients stay compliant, make informed decisions, and optimize their financial positions both locally and internationally.',
-        'Our services include tax return preparation, bookkeeping, payroll calculation and planning, corporate reporting, retirement tax planning assistance and optimization, estate planning, and ongoing advisory services regarding Israeli and U.S. related matters.',
+        'Our services include tax return preparation, bookkeeping, payroll calculation and planning, corporate reporting, retirement financial and tax planning assistance and optimization, estate planning, and ongoing advisory services regarding Israeli and U.S. related matters.',
         'We look forward to the opportunity to provide you with our expert services and hearing from you soon.',
       ],
       values: [

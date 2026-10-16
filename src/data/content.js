@@ -44,7 +44,7 @@ export const content = {
         {
           icon: '🇺🇸',
           title: 'U.S. Tax Filing',
-          desc: 'Federal and state returns for individuals and businesses, including expats.',
+          desc: 'Federal and state tax returns for individuals and businesses.',
         },
         {
           icon: '🇮🇱',
@@ -54,7 +54,7 @@ export const content = {
         {
           icon: '📊',
           title: 'Expert Tax Advisory',
-          desc: 'Strategic planning for Americans living abroad and foreign nationals in the U.S.',
+          desc: 'Strategic planning for Americans living abroad and non Americans.',
         },
         {
           icon: '🏦',

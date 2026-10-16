@@ -115,7 +115,7 @@ export const staff = [
     name: 'Miriam Zelivansky',     nameHe: 'מרים זליבנסקי',
     position: 'Bookkeeper',                        positionHe: 'מנהלת חשבונות',
     group: 'Bookkeeping',
-    extension: '74',
+    extension: '75',
     email: 'miriam@galitzercpa.com',
   },
   {
@@ -159,7 +159,7 @@ export const staff = [
     name: 'Shoshana Grabel',       nameHe: 'שושנה גראבל',
     position: 'Office Manager',                    positionHe: 'מנהלת משרד',
     group: 'Operations',
-    extension: '43',
+    extension: '0',
     email: 'shoshana@galitzercpa.com',
   },
   {
