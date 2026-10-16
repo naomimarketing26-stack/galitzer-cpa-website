@@ -67,7 +67,7 @@ const contactContent = {
       topic: 'נושא',
       topicOptions: [
         { value: '', label: 'בחר נושא...' },
-        { value: 'us-tax', label: 'הגשת מס אמריקאי' },
+        { value: 'us-tax', label: 'הגשת דוחות מס אמריקאי' },
         { value: 'israeli-tax', label: 'הגשת מס ישראלי' },
         { value: 'expat', label: 'ייעוץ מס לגולים' },
         { value: 'fbar', label: 'FBAR / דיווח חשבונות' },
@@ -174,8 +174,11 @@ export default function ContactPage() {
         }),
       })
       const data = await res.json()
-      if (!data.success) throw new Error('failed')
-      setSubmitted(true)
+      if (!data.success) {
+        setErrors(er => ({ ...er, _submit: f.errors?.submitError || (isRTL ? 'אירעה שגיאה. נסו שוב.' : 'Something went wrong. Please try again.') }))
+      } else {
+        setSubmitted(true)
+      }
     } catch {
       setErrors(er => ({ ...er, _submit: f.errors?.submitError || (isRTL ? 'אירעה שגיאה. נסו שוב.' : 'Something went wrong. Please try again.') }))
     } finally {

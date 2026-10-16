@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useLang } from '../context/LanguageContext'
 import { content } from '../data/content'
 import { useReveal } from '../hooks/useReveal'
@@ -43,13 +43,17 @@ export default function BlogPage() {
   const isRTL = lang === 'he'
   const tabs = TABS[lang]
   const [activeTab, setActiveTab] = useState(tabs[0])
-  useEffect(() => { setActiveTab(tabs[0]) }, [lang])
   const [infoCenterRef, infoCenterRevealed] = useReveal()
 
-  const isAllTab = activeTab === tabs[0]
-  const isGuidesTab = activeTab === tabs[3]
-  const featured = featuredLinks[lang].filter(l => isGuidesTab ? false : isAllTab ? true : l.tab === activeTab)
-  const list = listLinks[lang].filter(l => isGuidesTab ? false : isAllTab ? true : l.tab === activeTab)
+  // Fall back to the first tab if the selected one isn't valid for the current language.
+  // This resets the active tab on language change without calling setState inside an effect,
+  // avoiding cascading renders (react-hooks/set-state-in-effect).
+  const safeActiveTab = tabs.includes(activeTab) ? activeTab : tabs[0]
+
+  const isAllTab = safeActiveTab === tabs[0]
+  const isGuidesTab = safeActiveTab === tabs[3]
+  const featured = featuredLinks[lang].filter(l => isGuidesTab ? false : isAllTab ? true : l.tab === safeActiveTab)
+  const list = listLinks[lang].filter(l => isGuidesTab ? false : isAllTab ? true : l.tab === safeActiveTab)
 
   return (
     <main>
@@ -84,9 +88,9 @@ export default function BlogPage() {
                   fontWeight: 600,
                   cursor: 'pointer',
                   transition: 'all 0.2s ease',
-                  backgroundColor: activeTab === tab ? '#C4883A' : '#ffffff',
-                  borderColor: activeTab === tab ? '#C4883A' : '#e2e2e2',
-                  color: activeTab === tab ? '#ffffff' : '#555555',
+                  backgroundColor: safeActiveTab === tab ? '#C4883A' : '#ffffff',
+                  borderColor: safeActiveTab === tab ? '#C4883A' : '#e2e2e2',
+                  color: safeActiveTab === tab ? '#ffffff' : '#555555',
                 }}
               >
                 {tab}
