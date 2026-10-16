@@ -33,9 +33,7 @@ export const pages = {
       categories: [
         {
           id: 'us-tax',
-          icon: '🇺🇸',
           title: 'U.S. Tax Services',
-          badge: 'Most Popular',
           color: 'bg-blue-50',
           accentColor: 'border-blue-400',
           items: [
@@ -49,9 +47,7 @@ export const pages = {
         },
         {
           id: 'israeli-tax',
-          icon: '🇮🇱',
           title: 'Israeli Tax Services',
-          badge: 'Comprehensive',
           color: 'bg-[#e8f4f6]',
           accentColor: 'border-[#276e7d]',
           subGroups: [
