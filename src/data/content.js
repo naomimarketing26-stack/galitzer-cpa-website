@@ -27,7 +27,7 @@ export const content = {
       cta: 'Get Started',
       items: [
         { icon: '🇺🇸', title: 'U.S. Citizens Living in Israel', desc: 'Stay compliant with both U.S. and Israeli requirements' },
-        { icon: '💰', title: 'Individuals with Worldwide Assets', desc: 'Understand where and how to properly report your income' },
+        { icon: '💰', title: 'Individuals with world wide assets', desc: 'Understand where and how to properly report your income' },
         { icon: '💼', title: 'Freelancers or Self-Employed Workers', desc: 'Clear guidance for cross-border taxation and reporting' },
         { icon: '🏢', title: 'Businesses Operating Between Israel and the U.S.', desc: 'Structured support for complex financial and tax needs' },
         { icon: '🎯', title: 'Individuals Approaching Retirement', desc: 'Plan ahead for pensions, withdrawals, and cross-border tax implications' },
