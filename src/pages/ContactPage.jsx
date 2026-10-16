@@ -557,9 +557,6 @@ export default function ContactPage() {
                 e.target.style.boxShadow = '0 1px 4px rgba(0,0,0,0.05)'
               }}
             >
-              <svg style={{ width: '20px', height: '20px' }} viewBox="0 0 24 24" fill="currentColor">
-                <path d="M2 12C2 6.48 6.48 2 12 2s10 4.48 10 10-4.48 10-10 10S2 17.52 2 12zM5 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2zM11 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2zM9 14C10 12 14 12 15 14"/>
-              </svg>
               {isRTL ? 'פתח ב-Waze' : 'Open in Waze'}
             </a>
           </div>
