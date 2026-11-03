@@ -69,8 +69,8 @@ const contactContent = {
       topicOptions: [
         { value: '', label: 'בחר נושא...' },
         { value: 'us-tax', label: 'הגשת דוחות מס אמריקאי' },
-        { value: 'israeli-tax', label: 'הגשת מס ישראלי' },
-        { value: 'expat', label: 'ייעוץ מס לגולים' },
+        { value: 'israeli-tax', label: 'הגשת דוחות מס ישראלי' },
+        { value: 'expat', label: 'ייעוץ מס לעולים' },
         { value: 'fbar', label: 'FBAR / דיווח חשבונות' },
         { value: 'corporate', label: 'הקמת חברה' },
         { value: 'retirement', label: 'תכנון פרישה' },
