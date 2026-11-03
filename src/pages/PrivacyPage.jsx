@@ -12,7 +12,7 @@ const content = {
       },
       {
         title: '2. Data Controller',
-        body: 'The entity responsible for the personal data collected through this website is:\n\nS. Galitzer & Associates CPA\n28 Ben Zion Street, Givat Shaul, Jerusalem, Israel\nEmail: yonatan@galitzercpa.com\nPhone: 972-2-652-5060',
+        body: 'The entity responsible for the personal data collected through this website is:\n\nS. Galitzer & Associates CPA\n28 Ben Zion Street, Givat Shaul, Jerusalem, Israel\nEmail: yonatan@galitzercpa.com\nPhone: 02-652-5060',
       },
       {
         title: '3. What Information We Collect',
@@ -48,7 +48,7 @@ const content = {
       },
       {
         title: '11. Contact',
-        body: 'For any questions or requests regarding this Privacy Policy:\n\nEmail: yonatan@galitzercpa.com\nPhone: 972-2-652-5060\nAddress: 28 Ben Zion Street, Givat Shaul, Jerusalem, Israel',
+        body: 'For any questions or requests regarding this Privacy Policy:\n\nEmail: yonatan@galitzercpa.com\nPhone: 02-652-5060\nAddress: 28 Ben Zion Street, Givat Shaul, Jerusalem, Israel',
       },
     ],
   },

@@ -184,11 +184,11 @@ export const content = {
       links: ['Services', 'Team', 'About', 'Blog', 'Contact'],
       contact: {
         email: 'yonatan@galitzercpa.com',
-        phoneIL: '972-2-652-5060',
+        phoneIL: '02-652-5060',
         phoneUS: '(954) 703-6027',
         whatsAppIL: ' 058-6525060',
         whatsAppUS: '19547036027',
-        fax: '972-2-651-1488',
+        fax: '02-651-1488',
       },
       office: {
         label: 'Office',
@@ -310,11 +310,11 @@ export const content = {
       links: ['שירותים', 'הצוות', 'אודות', 'עדכונים', 'צור קשר'],
       contact: {
         email: 'yonatan@galitzercpa.com',
-        phoneIL: '972-2-652-5060',
+        phoneIL: '02-652-5060',
         phoneUS: '(954) 703-6027',
         whatsAppIL: ' 058-6525060',
         whatsAppUS: '19547036027',
-        fax: '972-2-651-1488',
+        fax: '02-651-1488',
       },
       office: {
         label: 'משרד',
