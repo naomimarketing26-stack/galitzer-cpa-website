@@ -1,7 +1,7 @@
 export const officePhone = {
-  il: '(972) 2-652-5060',
-  ilFax: '(972) 2-651-1488',
-  us: '(954) 703-6027',
+  il: '02-652-5060',
+  ilFax: '02-651-1488',
+  us: '954-703-6027',
   whatsapp: '058-652-5060',
   whatsappLink: 'https://wa.me/058-6525060'
 }

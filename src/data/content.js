@@ -185,7 +185,7 @@ export const content = {
       contact: {
         email: 'yonatan@galitzercpa.com',
         phoneIL: '02-652-5060',
-        phoneUS: '(954) 703-6027',
+        phoneUS: '954-703-6027',
         whatsAppIL: ' 058-6525060',
         whatsAppUS: '19547036027',
         fax: '02-651-1488',
@@ -311,9 +311,9 @@ export const content = {
       contact: {
         email: 'yonatan@galitzercpa.com',
         phoneIL: '02-652-5060',
-        phoneUS: '(954) 703-6027',
+        phoneUS: '954-703-6027',
         whatsAppIL: ' 058-6525060',
-        whatsAppUS: '19547036027',
+        whatsAppUS: '1-954-7036027',
         fax: '02-651-1488',
       },
       office: {
