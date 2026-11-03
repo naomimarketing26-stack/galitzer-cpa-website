@@ -27,7 +27,7 @@ export const pages = {
         eyebrow: 'Our Services',
         heading: 'Comprehensive Israeli & U.S. Tax and Accounting Services',
         subheading:
-          'At Galitzer Associates CPA, we provide comprehensive Israeli and U.S. tax and accounting services, with a strong focus on cross-border matters. We work with individuals, business owners, retirees, and companies who require precise compliance, strategic planning, and clear, reliable professional guidance.',
+          'At Galitzers Associates CPA, we provide comprehensive Israeli and U.S. tax and accounting services, with a strong focus on cross-border matters. We work with individuals, business owners, retirees, and companies who require precise compliance, strategic planning, and clear, reliable professional guidance.',
       },
       cta: 'Book a Consultation',
       categories: [

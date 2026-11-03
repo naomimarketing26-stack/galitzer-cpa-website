@@ -4,7 +4,7 @@ export const content = {
       services: 'Services',
       team: 'Team',
       about: 'About',
-      blog: 'Blog',
+      updates: 'Updates',
       contact: 'Contact',
       cta: 'Book a Consultation',
       logo: 'S.GALITZER & ASSOCIATES',
@@ -159,7 +159,7 @@ export const content = {
       subheading: '',
       cta: 'Book a Consultation Now',
     },
-    blog: {
+    updates: {
       eyebrow: 'Resources & Insights',
       heading: 'Helpful Information & Tools',
       subheading: 'Access authoritative resources and guides to help you navigate international taxation.',
@@ -181,7 +181,7 @@ export const content = {
     },
     footer: {
       tagline: 'U.S. and Israel CPA',
-      links: ['Services', 'Team', 'About', 'Blog', 'Contact'],
+      links: ['Services', 'Team', 'About', 'Updates', 'Contact'],
       contact: {
         email: 'yonatan@galitzercpa.com',
         phoneIL: '02-652-5060',
@@ -205,7 +205,7 @@ export const content = {
       services: 'שירותים',
       team: 'הצוות',
       about: 'אודות',
-      blog: 'עדכונים',
+      updates: 'עדכונים',
       contact: 'צור קשר',
       cta: 'קביעת פגישת ייעוץ',
       logo: 'ש.גליצר ושות׳',
@@ -285,7 +285,7 @@ export const content = {
       subheading: '',
       cta: 'קבעו שיחה',
     },
-    blog: {
+    updates: {
       eyebrow: 'עדכונים',
       heading: 'כל מה שצריך לדעת על מיסוי אמריקאי וישראלי',
       subheading: 'תובנות, מדריכים וכלים שיעזרו לכם להבין את התמונה המלאה.',

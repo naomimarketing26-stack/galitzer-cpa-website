@@ -37,9 +37,9 @@ const listLinks = {
   ],
 }
 
-export default function BlogPage() {
+export default function UpdatesPage() {
   const { lang } = useLang()
-  const t = content[lang].blog
+  const t = content[lang].updates
   const isRTL = lang === 'he'
   const tabs = TABS[lang]
   const [activeTab, setActiveTab] = useState(tabs[0])
@@ -176,7 +176,6 @@ export default function BlogPage() {
           )}
         </div>
       </section>
-
 
       {/* Bottom CTA */}
       <section style={{ backgroundColor: '#0D1E2F', paddingTop: '80px', paddingBottom: '80px' }}>

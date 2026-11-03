@@ -11,7 +11,7 @@ const container = {
   paddingRight: 'clamp(24px, 5vw, 80px)',
 }
 
-const linkPaths = ['/services', '/team', '/about', '/blog', '/contact']
+const linkPaths = ['/services', '/team', '/about', '/updates', '/contact']
 
 export default function Footer() {
   const { lang, toggle } = useLang()

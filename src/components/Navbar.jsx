@@ -45,7 +45,7 @@ export default function Navbar() {
     { label: t.services, href: '/services' },
     { label: t.team, href: '/team' },
     { label: t.about, href: '/about' },
-    { label: t.blog, href: '/blog' },
+    { label: t.updates, href: '/updates' },
     { label: t.contact, href: '/contact' },
   ]
 

@@ -7,7 +7,7 @@ import AboutPage from './pages/AboutPage'
 import ServicesPage from './pages/ServicesPage'
 import TeamPage from './pages/TeamPage'
 import ContactPage from './pages/ContactPage'
-import BlogPage from './pages/BlogPage'
+import UpdatesPage from './pages/UpdatesPage'
 import NotFoundPage from './pages/NotFoundPage'
 import AccessibilityPage from './pages/AccessibilityPage'
 import PrivacyPage from './pages/PrivacyPage'
@@ -25,7 +25,7 @@ export default function App() {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/team" element={<TeamPage />} />
-            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/updates" element={<UpdatesPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/privacy" element={<PrivacyPage />} />
             <Route path="/accessibility" element={<AccessibilityPage />} />
