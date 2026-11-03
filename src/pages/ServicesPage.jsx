@@ -31,12 +31,6 @@ function ServiceCard({ category, isRTL, revealDelay, revealed }) {
   const badgeColors = {
     'Most Popular': { bg: '#1A3554', text: '#ffffff' },
     'Comprehensive': { bg: '#0F2B47', text: '#B0C8E0' },
-    'For Professionals': { bg: '#6E7F8D', text: '#ffffff' },
-    'Most Asked': { bg: '#8a6020', text: '#ffffff' },
-    'הנפוץ ביותר': { bg: '#1A3554', text: '#ffffff' },
-    'מקיף': { bg: '#0F2B47', text: '#B0C8E0' },
-    'לעסקים': { bg: '#6E7F8D', text: '#ffffff' },
-    'נשאל הכי הרבה': { bg: '#8a6020', text: '#ffffff' },
   }
   const badge = category.badge ? badgeColors[category.badge] || { bg: '#1A3554', text: '#ffffff' } : null
 
