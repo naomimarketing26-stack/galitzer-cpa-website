@@ -32,7 +32,7 @@ const listLinks = {
     { name: 'Israeli National Insurance Authority (Bituach Leumi)', desc: 'Israeli social security and benefits', url: 'https://www.btl.gov.il', flag: '🛡️', tab: 'Israel' },
   ],
   he: [
-    { name: 'המינהל לביטוח לאומי (ארה"ב)', desc: 'הטבות פרישה ותנאי זכאות בארה"ב', url: 'https://www.ssa.gov', flag: '📋', tab: 'ארה״ב' },
+    { name: 'המנהל לביטוח לאומי (ארה"ב)', desc: 'הטבות פרישה ותנאי זכאות בארה"ב', url: 'https://www.ssa.gov', flag: '📋', tab: 'ארה״ב' },
     { name: 'המוסד לביטוח לאומי', desc: 'ביטוח לאומי וגמלאות בישראל', url: 'https://www.btl.gov.il', flag: '🛡️', tab: 'ישראל' },
   ],
 }

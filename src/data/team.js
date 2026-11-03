@@ -150,7 +150,7 @@ export const staff = [
   // Operations
   {
     name: 'Gershon Leader',        nameHe: 'גרשון לידר',
-    position: 'Tax Preparer',                      positionHe: 'מכין דוחות מס',
+    position: 'Tax Preparer',                      positionHe: 'הכנת דוחות מס',
     group: 'Tax Advisors',
     extension: '35',
     email: 'gershon@galitzercpa.com',
