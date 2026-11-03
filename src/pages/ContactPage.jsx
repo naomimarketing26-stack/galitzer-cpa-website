@@ -500,7 +500,7 @@ export default function ContactPage() {
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '8px', flexDirection: isRTL ? 'row-reverse' : 'row' }}>
                   <span>💬 WhatsApp:</span>
-                    <a href="https://wa.me/972586525060" target="_blank" rel="noreferrer">
+                    <a href="https://wa.me/058-6525060" target="_blank" rel="noreferrer">
                       <LtrSpan>058-652-5060</LtrSpan>
                     </a>
                   <span style={{ fontSize: '12px', color: '#666' }}>(Email preferred)</span>
