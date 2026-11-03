@@ -93,7 +93,7 @@ export const pages = {
           color: 'bg-amber-50',
           accentColor: 'border-amber-400',
           items: [
-            'Retirement Tax Planning',
+            'Retirement financial Tax Planning',
             'Kibua Zchuyot (קיבוע זכויות) Assistance',
             'Pension & Lump-Sum Withdrawal Tax Optimization',
             'Coordination of Israeli & U.S. Retirement Income Taxation',
