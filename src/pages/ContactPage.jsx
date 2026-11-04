@@ -604,7 +604,7 @@ function ContactCard({ isRTL, heading, index, revealed, children }) {
         e.currentTarget.style.transform = 'translateY(0)'
       }}
     >
-      <h3 style={{ fontSize: '15px', fontWeight: 700, color: '#1A3554', marginBottom: '16px' }}>
+      <h3 style={{ fontSize: '15px', fontWeight: 700, color: '#1A3554', marginBottom: '16px', textAlign: isRTL ? 'right' : 'left', direction: isRTL ? 'rtl' : 'ltr' }}>
         {heading}
       </h3>
       <div style={{ fontSize: '14px', color: '#666666', lineHeight: 1.6 }}>
