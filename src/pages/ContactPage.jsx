@@ -403,6 +403,7 @@ export default function ContactPage() {
               gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
               gap: '24px',
               marginBottom: '40px',
+              direction: isRTL ? 'rtl' : 'ltr',
             }}>
               {/* Contact Info Card */}
               <ContactCard
@@ -411,7 +412,7 @@ export default function ContactPage() {
                 index={0}
                 revealed={infoRevealed}
               >
-                <div style={{ display: 'flex', gap: '12px', marginBottom: '20px', flexDirection: isRTL ? 'row-reverse' : 'row' }}>
+                <div style={{ display: 'flex', gap: '12px', marginBottom: '20px', flexDirection: 'row' }}>
                   <span style={{ color: '#C4883A', marginTop: '2px', flexShrink: 0 }}>
                     <svg style={{ width: '16px', height: '16px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -422,20 +423,20 @@ export default function ContactPage() {
                     href={OFFICE.googleMapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ color: '#555555', lineHeight: 1.6, fontSize: '14px', whiteSpace: 'pre-line', textDecoration: 'none', transition: 'color 0.2s' }}
+                    style={{ color: '#555555', lineHeight: 1.6, fontSize: '14px', whiteSpace: 'pre-line', textDecoration: 'none', transition: 'color 0.2s', textAlign: isRTL ? 'right' : 'left', direction: isRTL ? 'rtl' : 'ltr' }}
                     onMouseEnter={e => e.currentTarget.style.color = '#1A3554'}
                     onMouseLeave={e => e.currentTarget.style.color = '#555555'}
                   >
                     {t.info.address}
                   </a>
                 </div>
-                <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexDirection: isRTL ? 'row-reverse' : 'row' }}>
+                <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexDirection: 'row' }}>
                   <span style={{ color: '#C4883A', flexShrink: 0 }}>
                     <svg style={{ width: '16px', height: '16px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </span>
-                  <div style={{ fontSize: '14px' }}>
+                  <div style={{ textAlign: isRTL ? 'right' : 'left', direction: isRTL ? 'rtl' : 'ltr', fontSize: '14px' }}>
                     <span style={{ color: '#777777', fontSize: '12px' }}>{t.info.hours}: </span>
                     <span style={{ color: '#555555' }}>{t.info.hoursValue}</span>
                   </div>
@@ -449,65 +450,65 @@ export default function ContactPage() {
                 index={1}
                 revealed={infoRevealed}
               >
-                <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', marginBottom: '16px', flexDirection: isRTL ? 'row-reverse' : 'row' }}>
+                <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', marginBottom: '16px', flexDirection: 'row' }}>
                   <span style={{ color: '#C4883A', marginTop: '2px', flexShrink: 0 }}>
                     <svg style={{ width: '16px', height: '16px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 8V5z" />
                     </svg>
                   </span>
-                  <div style={{ textAlign: isRTL ? 'right' : 'left' }}>
+                  <div style={{ textAlign: isRTL ? 'right' : 'left', direction: isRTL ? 'rtl' : 'ltr' }}>
                     <span style={{ color: '#777777', fontSize: '12px' }}>{t.info.phoneIL}: </span>
                     <a href={`tel:${officePhone.il}`} style={{ color: '#1A3554', textDecoration: 'none', fontWeight: 500, fontSize: '14px', display: 'block' }}>
                       <LtrSpan>{officePhone.il}</LtrSpan>
                     </a>
                   </div>
                 </div>
-                <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', marginBottom: '16px', flexDirection: isRTL ? 'row-reverse' : 'row' }}>
+                <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', marginBottom: '16px', flexDirection: 'row' }}>
                   <span style={{ color: '#C4883A', marginTop: '2px', flexShrink: 0 }}>
                     <svg style={{ width: '16px', height: '16px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 8V5z" />
                     </svg>
                   </span>
-                  <div style={{ textAlign: isRTL ? 'right' : 'left' }}>
+                  <div style={{ textAlign: isRTL ? 'right' : 'left', direction: isRTL ? 'rtl' : 'ltr' }}>
                     <span style={{ color: '#777777', fontSize: '12px' }}>{t.info.phoneUS}: </span>
                     <a href={`tel:${officePhone.us}`} style={{ color: '#1A3554', textDecoration: 'none', fontWeight: 500, fontSize: '14px', display: 'block' }}>
                       <LtrSpan>{officePhone.us}</LtrSpan>
                     </a>
                   </div>
                 </div>
-                <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', marginBottom: '16px', flexDirection: isRTL ? 'row-reverse' : 'row' }}>
+                <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', marginBottom: '16px', flexDirection: 'row' }}>
                   <span style={{ color: '#C4883A', marginTop: '2px', flexShrink: 0 }}>
                     <svg style={{ width: '16px', height: '16px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
                     </svg>
                   </span>
-                  <div style={{ textAlign: isRTL ? 'right' : 'left' }}>
+                  <div style={{ textAlign: isRTL ? 'right' : 'left', direction: isRTL ? 'rtl' : 'ltr' }}>
                     <span style={{ color: '#777777', fontSize: '12px' }}>{t.info.fax}: </span>
                     <span style={{ color: '#555555', fontSize: '14px', display: 'block' }}>
                       <LtrSpan>{officePhone.ilFax}</LtrSpan>
                     </span>
                   </div>
                 </div>
-                <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', flexDirection: isRTL ? 'row-reverse' : 'row' }}>
+                <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', flexDirection: 'row' }}>
                   <span style={{ color: '#C4883A', marginTop: '2px', flexShrink: 0 }}>
                     <svg style={{ width: '16px', height: '16px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </span>
-                  <a href="mailto:yonatan@galitzercpa.com" style={{ color: '#1A3554', textDecoration: 'none', fontWeight: 500, fontSize: '14px' }}>
+                  <a href="mailto:yonatan@galitzercpa.com" style={{ color: '#1A3554', textDecoration: 'none', fontWeight: 500, fontSize: '14px', textAlign: isRTL ? 'right' : 'left', direction: isRTL ? 'rtl' : 'ltr' }}>
                     <LtrSpan>yonatan@galitzercpa.com</LtrSpan>
                   </a>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '8px', flexDirection: isRTL ? 'row-reverse' : 'row' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '8px', flexDirection: 'row' }}>
                   <span aria-hidden="true" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '16px', color: '#25D366', fontSize: '16px', lineHeight: 1 }}>
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
                       <path d="M20.52 3.48A11.82 11.82 0 0 0 12.06 0C5.44 0 .05 5.39.05 12.01c0 2.12.55 4.2 1.59 6.03L0 24l6.12-1.61A12.02 12.02 0 0 0 12.06 24c6.62 0 12.01-5.39 12.01-12.01 0-3.21-1.25-6.23-3.55-8.51ZM12.06 21.9c-1.94 0-3.83-.52-5.48-1.51l-.39-.23-3.64.96 1-3.54-.26-.38A9.82 9.82 0 0 1 2.2 12.01c0-5.43 4.43-9.86 9.86-9.86 2.63 0 5.1 1.03 6.96 2.89a9.79 9.79 0 0 1 2.89 6.97c0 5.43-4.43 9.86-9.86 9.86Zm5.38-7.37c-.29-.15-1.72-.85-1.99-.95-.27-.1-.46-.15-.66.15-.2.29-.77.95-.94 1.15-.17.2-.35.22-.64.08-.29-.15-1.22-.45-2.32-1.44-.86-.77-1.44-1.71-1.6-2-.17-.29-.02-.45.13-.59.13-.13.29-.35.44-.52.15-.17.2-.29.29-.49.1-.2.05-.37-.02-.52-.08-.15-.66-1.6-.9-2.2-.24-.59-.48-.51-.66-.52l-.56-.01c-.2 0-.52.08-.79.38-.27.3-1.03 1.01-1.03 2.46s1.06 2.85 1.2 3.05c.15.2 2.08 3.18 5.04 4.46.7.3 1.25.48 1.68.62.7.22 1.34.19 1.85.12.56-.08 1.72-.7 1.96-1.38.24-.68.24-1.27.17-1.39-.08-.12-.29-.19-.6-.33Z" />
                     </svg>
                   </span>
-                    <a href="https://wa.me/058-6525060" target="_blank" rel="noreferrer" style={{ color: '#1A3554', textDecoration: 'none', fontWeight: 500, fontSize: '14px', direction: 'ltr' }}>
+                    <a href="https://wa.me/058-6525060" target="_blank" rel="noreferrer" style={{ color: '#1A3554', textDecoration: 'none', fontWeight: 500, fontSize: '14px', direction: 'ltr', textAlign: isRTL ? 'right' : 'left' }}>
                       <LtrSpan>058-652-5060</LtrSpan>
                     </a>
-                  <span style={{ fontSize: '12px', color: '#666' }}>(Email preferred)</span>
+                  <span style={{ fontSize: '12px', color: '#666', textAlign: isRTL ? 'right' : 'left', direction: isRTL ? 'rtl' : 'ltr' }}>(Email preferred)</span>
                 </div>
               </ContactCard>
 
