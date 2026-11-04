@@ -41,12 +41,13 @@ function StaffCard({ member, t, isRTL, onViewBio }) {
         <p style={{ fontSize: 12, color: '#C4883A', fontWeight: 600, lineHeight: 1.35, margin: '3px 0 0' }}>{position}</p>
       </div>
     </div>
-    <div style={{ borderTop: '1px solid #f0f0f0', paddingTop: 16, display: 'flex', flexDirection: 'column', gap: 10, marginTop: 'auto' }}>
+    <div style={{ borderTop: '1px solid #f0f0f0' }} />
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginTop: 'auto' }}>
       <a href={`mailto:${member.email}`} style={{ display: 'flex', alignItems: 'center', gap: 8, minWidth: 0, fontSize: 12, color: '#666', textDecoration: 'none' }}><span style={{ color: '#1A3554' }}><MailIcon /></span><span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{member.email}</span></a>
       <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12, color: '#666' }}><span style={{ color: '#1A3554' }}><HashIcon /></span><span>{t.extLabel} {member.extension}</span></div>
       {member.phone && <a href={`tel:${member.phone.replace(/\D/g, '')}`} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12, color: '#666', textDecoration: 'none' }}><span style={{ color: '#1A3554' }}><PhoneIcon /></span><span>{member.phone}</span></a>}
+      {hasBio && <button onClick={() => onViewBio(member)} style={{ padding: '8px 0', background: '#EEF3F7', color: '#1A3554', fontSize: 12, fontWeight: 600, border: 0, borderRadius: 8, cursor: 'pointer', width: '100%' }}>{isRTL ? 'צפה בביו' : 'View Bio'}</button>}
     </div>
-    {hasBio && <button onClick={() => onViewBio(member)} style={{ padding: '8px 0', background: '#EEF3F7', color: '#1A3554', fontSize: 12, fontWeight: 600, border: 0, borderRadius: 8, cursor: 'pointer', width: '100%' }}>{isRTL ? 'צפה בביו' : 'View Bio'}</button>}
   </div>
 }
 
