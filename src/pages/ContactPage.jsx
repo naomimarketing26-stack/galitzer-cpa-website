@@ -92,7 +92,7 @@ const contactContent = {
     },
     info: {
       heading: 'פרטי יצירת קשר',
-      address: 'S. Galitzer Associates\nרחוב בן ציון 28\nגבעת שאול, ירושלים\nישראל',
+      address: 'ש. גליצר ושות\nרחוב בן ציון 28\nגבעת שאול, ירושלים\nישראל',
       phoneIL: 'משרד ישראל',
       phoneUS: 'קו ארה"ב',
       fax: 'פקס',
