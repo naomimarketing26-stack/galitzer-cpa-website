@@ -104,15 +104,15 @@ export default function Hero() {
         <span
           className="hero-animate hero-delay-1 inline-block"
           style={{
-            fontSize: '15px',
+            fontSize: isRTL ? '13px' : '11px',
             fontWeight: 700,
-            letterSpacing: '0.2em',
+            letterSpacing: isRTL ? '0.08em' : '0.12em',
             textTransform: 'uppercase',
             color: '#C4883A',
             background: 'rgba(255,255,255,0.08)',
             border: '1px solid rgba(255,255,255,0.2)',
             borderRadius: '100px',
-            padding: '8px 20px',
+            padding: isRTL ? '8px 20px' : '6px 16px',
             marginBottom: '28px',
             display: 'inline-block',
           }}
