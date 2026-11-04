@@ -82,7 +82,7 @@ function MiniCard({ member, isRTL }) {
         <p style={{ fontSize: '12px', color: '#C4883A', fontWeight: 600, marginTop: '3px' }}>{displayPosition}</p>
         <a
           href={`mailto:${member.email}`}
-          style={{ fontSize: '12px', color: '#888888', textDecoration: 'none', marginTop: '3px', display: 'block', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}
+          style={{ fontSize: '12px', color: '#888888', textDecoration: 'none', marginTop: '3px', display: 'block' }}
           onMouseEnter={e => e.currentTarget.style.color = '#1A3554'}
           onMouseLeave={e => e.currentTarget.style.color = '#888888'}
         >
@@ -143,7 +143,7 @@ export default function TeamPreview() {
         {/* Cards */}
         <div
           ref={gridRef}
-          style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px', marginBottom: '40px' }}
+          style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '40px' }}
         >
           {featured.map((member, i) => (
             <div
